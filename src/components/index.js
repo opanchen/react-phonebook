@@ -6,3 +6,7 @@ export * from "./InnerNavigation/InnerNavigation.jsx";
 export { default as AllContacts } from "./AllContacts/AllContacts.jsx";
 export { default as FavContacts } from "./FavContacts/FavContacts.jsx";
 export * from "./ContactForm/ContactForm.jsx";
+export * from "./AuthNavigation/AuthNavigation.jsx";
+export * from "./UserMenu/UserMenu.jsx";
+export * from "./RegisterForm/RegisterForm.jsx";
+export * from "./LoginForm/LoginForm.jsx";

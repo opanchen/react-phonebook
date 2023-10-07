@@ -1,0 +1,70 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 288px;
+  padding: 8px;
+  border: 1px solid;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* width: 270px; */
+}
+
+input {
+  height: 24px;
+  /* width: 270px; */
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 120px;
+  padding: 16px 8px;
+  height: 24px;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  border: 1px solid;
+  border-radius: 4px;
+  transition: scale 250ms linear, color 250ms linear,
+    background-color 250ms linear;
+}
+
+button.disabled {
+  pointer-events: none;
+}
+
+button:hover,
+button:focus {
+  color: #e84a5f;
+  background-color: #e2ddf8;
+  scale: 1.1;
+}
+
+button:active {
+  background-color: #5f6775;
+  color: #f4f4f4;
+}
+
+.buttons-bar {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 399px) {
+  .register-form {
+    width: 272px;
+  }
+
+  /* input {
+     width: 256px
+    } */
+}

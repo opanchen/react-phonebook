@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.username {
+  font-weight: 700;
+  text-align: center;
+}
+
+.btn-logout {
+  width: 80px;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 399px) {
+  .wrapper {
+    gap: 8px;
+  }
+
+  .btn-label {
+    display: none;
+  }
+
+  .btn-logout {
+    width: 40px;
+  }
+}
