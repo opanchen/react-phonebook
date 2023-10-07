@@ -1,7 +1,9 @@
 import { Outlet } from "react-router-dom";
-import css from "./SharedLayout.module.css";
 import { AppBar, Container } from "components";
 import { Suspense } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import css from "./SharedLayout.module.css";
 
 export const SharedLayout = () => {
   return (
@@ -21,6 +23,7 @@ export const SharedLayout = () => {
       <footer>
         <div>Footer</div>
       </footer>
+      <ToastContainer autoClose={3000} />
     </div>
   );
 };
