@@ -13,6 +13,7 @@ function App() {
   const FavContacts = lazy(() =>
     import("./components/FavContacts/FavContacts")
   );
+  const VerificationPage = lazy(() => import("./pages/Verify/Verify"));
 
   return (
     <Routes>
@@ -24,6 +25,7 @@ function App() {
           <Route path="all" element={<AllContacts />} />
           <Route path="favorite" element={<FavContacts />} />
         </Route>
+        <Route path="/api/users/verify/:token" element={<VerificationPage />} />
         <Route path="*" element={<HomePage />} />
       </Route>
     </Routes>
