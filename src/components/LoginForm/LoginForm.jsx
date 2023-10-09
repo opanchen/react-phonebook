@@ -2,10 +2,14 @@ import { useState } from "react";
 import css from "./LoginForm.module.css";
 import { nanoid } from "nanoid";
 import { ClearIcon, LogInIcon } from "helpers/icons";
+import { useDispatch } from "react-redux";
+import { login } from "redux/auth/operations";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name: inputName, value } = e.currentTarget;
@@ -28,9 +32,9 @@ export const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(`Register submit: \nemail: ${email} \npassword: ${password}`);
+    console.log(`Login submit: \nemail: ${email} \npassword: ${password}`);
 
-    // dispatch(logIn({email, password}));
+    dispatch(login({ email, password }));
 
     reset();
   };

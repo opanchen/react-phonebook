@@ -2,11 +2,15 @@ import { useState } from "react";
 import css from "./RegisterForm.module.css";
 import { nanoid } from "nanoid";
 import { ClearIcon } from "helpers/icons";
+import { useDispatch } from "react-redux";
+import { register } from "redux/auth/operations";
 
 export const RegisterForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name: inputName, value } = e.currentTarget;
@@ -36,13 +40,13 @@ export const RegisterForm = () => {
       `Register submit: \nname: ${username} \nemail: ${email} \npassword: ${password}`
     );
 
-    // dispatch(
-    //   register({
-    //     name: username,
-    //     email,
-    //     password
-    //   })
-    // );
+    dispatch(
+      register({
+        name: username,
+        email,
+        password,
+      })
+    );
 
     reset();
   };
