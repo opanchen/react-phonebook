@@ -3,13 +3,17 @@ import { nanoid } from "nanoid";
 import css from "./ContactForm.module.css";
 import { ClearIcon } from "helpers/icons";
 import { toast } from "react-toastify";
+import { useAddContactMutation } from "redux/contacts/contactsSlice";
 
 export const ContactForm = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [addContact, res] = useAddContactMutation();
 
   const nameInputId = nanoid();
   const numberInputId = nanoid();
+  const emailInputId = nanoid();
 
   const handleChange = (e) => {
     const { name: inputName, value } = e.currentTarget;
@@ -20,6 +24,9 @@ export const ContactForm = () => {
         break;
       case "number":
         setNumber(value);
+        break;
+      case "email":
+        setEmail(value);
         break;
       default:
         console.log(
@@ -37,12 +44,19 @@ export const ContactForm = () => {
     }
     console.log("name: ", name, "\nnumber: ", number);
 
+    addContact({
+      name,
+      number,
+      email,
+    });
+
     reset();
   };
 
   const reset = () => {
     setName("");
     setNumber("");
+    setEmail("");
   };
 
   return (
@@ -72,6 +86,18 @@ export const ContactForm = () => {
           required
           onChange={handleChange}
           value={number}
+        />
+      </label>
+
+      <label htmlFor={emailInputId}>
+        Email
+        <input
+          type="email"
+          name="email"
+          id={emailInputId}
+          required
+          onChange={handleChange}
+          value={email}
         />
       </label>
 

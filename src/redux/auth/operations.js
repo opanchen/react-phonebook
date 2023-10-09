@@ -6,16 +6,18 @@ import { toast } from "react-toastify";
 const LOCAL_SERVER = "http://localhost:3030/api/";
 const REMOTE_SERVER = "https://phonebook-backend-kuop.onrender.com/api/";
 
-axios.defaults.baseURL = LOCAL_SERVER;
+// Create & export special axios instance to use it (with current config) inside another redux-slice
+export const phonebookAPI = axios.create();
+phonebookAPI.defaults.baseURL = LOCAL_SERVER;
 
 // Utility to add JWT
 const setAuthHeader = (token) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  phonebookAPI.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 // Utility to remove JWT
 const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = "";
+  phonebookAPI.defaults.headers.common.Authorization = "";
 };
 
 // POST @ /users/register
@@ -24,7 +26,7 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, { rejectWithValue }) => {
     try {
-      const res = await axios.post("/users/register", credentials);
+      const res = await phonebookAPI.post("/users/register", credentials);
       // After successfull registration the user gets an email with special link to verification page.
       // Don't add the verification token to the HTTP header.
 
@@ -46,7 +48,7 @@ export const login = createAsyncThunk(
   "auth/login",
   async (credentials, { rejectWithValue }) => {
     try {
-      const res = await axios.post("/users/login", credentials);
+      const res = await phonebookAPI.post("/users/login", credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
 
@@ -72,7 +74,7 @@ export const logout = createAsyncThunk(
   "auth/logout",
   async (_, { rejectWithValue }) => {
     try {
-      await axios.post("/users/logout");
+      await phonebookAPI.post("/users/logout");
       // After a successful logout, remove the token from the HTTP header
       clearAuthHeader();
     } catch (error) {
@@ -99,7 +101,7 @@ export const refreshUser = createAsyncThunk(
     try {
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
-      const res = await axios.get("/users/current");
+      const res = await phonebookAPI.get("/users/current");
       console.log(res);
       return res.data;
     } catch (error) {
