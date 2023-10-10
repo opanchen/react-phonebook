@@ -1,0 +1,11 @@
+.list {
+  /* outline: 1px dashed green; */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list > li {
+  /* outline: 1px dotted red; */
+  width: 100%;
+}

@@ -12,6 +12,9 @@ const ContactsPage = lazy(() => import("./pages/Contacts/Contacts"));
 const AllContacts = lazy(() => import("./components/AllContacts/AllContacts"));
 const FavContacts = lazy(() => import("./components/FavContacts/FavContacts"));
 const VerificationPage = lazy(() => import("./pages/Verify/Verify"));
+const ContactDetailsPage = lazy(() =>
+  import("./pages/ContactDetails/ContactDetails")
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +36,7 @@ function App() {
           <Route path="all" element={<AllContacts />} />
           <Route path="favorite" element={<FavContacts />} />
         </Route>
+        <Route path="/contacts/:id" element={<ContactDetailsPage />} />
         <Route path="/api/users/verify/:token" element={<VerificationPage />} />
         <Route path="*" element={<HomePage />} />
       </Route>

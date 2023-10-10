@@ -10,3 +10,6 @@ export * from "./AuthNavigation/AuthNavigation.jsx";
 export * from "./UserMenu/UserMenu.jsx";
 export * from "./RegisterForm/RegisterForm.jsx";
 export * from "./LoginForm/LoginForm.jsx";
+export * from "./ContactList/ContactList.jsx";
+export * from "./ContactList/ContactListItem/ContactListItem.jsx";
+export * from "./ContactList/ContactListLink/ContactListLink.jsx";

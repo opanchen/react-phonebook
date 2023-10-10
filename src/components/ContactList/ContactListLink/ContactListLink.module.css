@@ -1,0 +1,10 @@
+.wrapper {
+  outline: 1px dashed teal;
+
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+
+  gap: 4px;
+  /* width: 100%; */
+}

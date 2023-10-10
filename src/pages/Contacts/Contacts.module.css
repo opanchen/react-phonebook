@@ -1,0 +1,16 @@
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contacts-box {
+  /* outline: 1px dashed blue; */
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .inner {
+    flex-direction: row;
+  }
+}
