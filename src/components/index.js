@@ -13,3 +13,4 @@ export * from "./LoginForm/LoginForm.jsx";
 export * from "./ContactList/ContactList.jsx";
 export * from "./ContactList/ContactListItem/ContactListItem.jsx";
 export * from "./ContactList/ContactListLink/ContactListLink.jsx";
+export * from "./Modal/Modal.jsx";
