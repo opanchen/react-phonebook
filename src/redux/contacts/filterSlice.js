@@ -8,4 +8,4 @@ export const filterSlice = createSlice({
   },
 });
 
-export const { update } = filterSlice;
+export const { update } = filterSlice.actions;

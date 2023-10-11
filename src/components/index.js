@@ -15,3 +15,4 @@ export * from "./ContactList/ContactListItem/ContactListItem.jsx";
 export * from "./ContactList/ContactListLink/ContactListLink.jsx";
 export * from "./Modal/Modal.jsx";
 export * from "./EditContactForm/EditContactForm.jsx";
+export * from "./Filter/Filter.jsx";
