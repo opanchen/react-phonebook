@@ -155,14 +155,21 @@ export const EditContactForm = ({
         </label>
 
         <div className={css["buttons-bar"]}>
-          <button type="submit">Save</button>
+          <button type="submit" className={css["submit-btn"]}>
+            Save
+          </button>
           <button
             type="button"
             onClick={reset}
             disabled={!name && !number && !email}
-            className={!name && !number && !email ? css.disabled : undefined}
+            className={
+              !name && !number && !email
+                ? `${css.disabled} ${css["clear-btn"]}`
+                : css["clear-btn"]
+            }
           >
-            Clear
+            <span className={css["clear-btn-label"]}>Clear</span>
+
             <ClearIcon size={24} />
           </button>
         </div>

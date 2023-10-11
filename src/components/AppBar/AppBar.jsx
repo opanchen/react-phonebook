@@ -4,7 +4,7 @@ import { useAuth } from "hooks";
 
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
 
   return (
     <div className={css.wrapper}>

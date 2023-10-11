@@ -102,7 +102,7 @@ export const refreshUser = createAsyncThunk(
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
       const res = await phonebookAPI.get("/users/current");
-      console.log(res);
+      // console.log(res);
       return res.data;
     } catch (error) {
       console.log(error);

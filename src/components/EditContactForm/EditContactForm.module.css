@@ -16,6 +16,8 @@
   flex-direction: column;
   gap: 24px;
 
+  /* width: auto; */
+  /* width: 100%; */
   width: 288px;
   padding: 8px;
   border: 1px solid;
@@ -33,6 +35,30 @@
   justify-content: space-around;
 }
 
+/* .submit-btn,
+.clear-btn {
+  width: 120px;
+} */
+
 button.disabled {
   pointer-events: none;
+}
+
+@media screen and (max-width: 319px) {
+  .contact-form {
+    width: 236px;
+  }
+
+  .clear-btn-label {
+    display: none;
+  }
+
+  /* .submit-btn, */
+  .clear-btn {
+    width: 40px;
+  }
+
+  /* .clear-btn {
+    width: 40px;
+  } */
 }
