@@ -71,7 +71,7 @@ export const contactsAPI = createApi({
 
     updateStatusContact: builder.mutation({
       query: ({ id, favorite }) => ({
-        url: `contacts/${id}`,
+        url: `contacts/${id}/favorite`,
         method: "PATCH",
         data: { favorite },
       }),

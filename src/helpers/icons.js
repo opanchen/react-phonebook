@@ -6,16 +6,36 @@ import { BiLogOut } from "react-icons/bi";
 import { BiLogIn } from "react-icons/bi";
 import { BsFillEnvelopeAtFill } from "react-icons/bs";
 import { BiSolidPhoneCall } from "react-icons/bi";
+import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
 
-export const EditIcon = ({ size = 12 }) => <BiEdit size={size} />;
-export const DeleteIcon = ({ size = 12 }) => <MdDeleteForever size={size} />;
-export const ClearIcon = ({ size = 12 }) => <AiOutlineClear size={size} />;
-export const CloseIcon = ({ size = 12 }) => (
-  <AiOutlineCloseCircle size={size} />
+export const EditIcon = ({ size = 12, color = undefined }) => (
+  <BiEdit size={size} color={color} />
 );
-export const LogOutIcon = ({ size = 12 }) => <BiLogOut size={size} />;
-export const LogInIcon = ({ size = 12 }) => <BiLogIn size={size} />;
-export const MessageIcon = ({ size = 12 }) => (
-  <BsFillEnvelopeAtFill size={size} />
+export const DeleteIcon = ({ size = 12, color = undefined }) => (
+  <MdDeleteForever size={size} color={color} />
 );
-export const CallIcon = ({ size = 12 }) => <BiSolidPhoneCall size={size} />;
+export const ClearIcon = ({ size = 12, color = undefined }) => (
+  <AiOutlineClear size={size} color={color} />
+);
+export const CloseIcon = ({ size = 12, color = undefined }) => (
+  <AiOutlineCloseCircle size={size} color={color} />
+);
+export const LogOutIcon = ({ size = 12, color = undefined }) => (
+  <BiLogOut size={size} color={color} />
+);
+export const LogInIcon = ({ size = 12, color = undefined }) => (
+  <BiLogIn size={size} color={color} />
+);
+export const MessageIcon = ({ size = 12, color = undefined }) => (
+  <BsFillEnvelopeAtFill size={size} color={color} />
+);
+export const CallIcon = ({ size = 12, color = undefined }) => (
+  <BiSolidPhoneCall size={size} color={color} />
+);
+export const AddToFavIcon = ({ size = 12, color = undefined }) => (
+  <MdFavoriteBorder size={size} color={color} />
+);
+export const RemoveFromFavIcon = ({ size = 12, color = undefined }) => (
+  <MdFavorite size={size} color={color} />
+);

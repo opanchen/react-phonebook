@@ -10,9 +10,39 @@
 }
 
 .inner {
+  outline: 1px dashed teal;
   display: flex;
   align-items: center;
   gap: 4px;
+  /* max-width: 200px; */
+  padding-right: 8px;
+}
+
+.info {
+  overflow: scroll;
+  /* flex-shrink: 1; */
+  /* max-width: 100%; */
+  /* padding-right: 8px; */
+}
+
+.name,
+.phone,
+.email {
+  font-size: 14px;
+}
+
+.email {
+  /* font-size: 12px; */
+  font-style: italic;
+}
+
+.label-name,
+.label-phone,
+.label-email {
+  /* display: none; */
+
+  font-style: normal;
+  font-weight: 500;
 }
 
 .btn-bar {
@@ -34,6 +64,18 @@
 .message-btn {
   width: 80px;
   flex-shrink: 0;
+}
+
+.fav-btn {
+  width: 40px;
+}
+
+.icon-fav-remove {
+  color: red;
+}
+
+.fav-btn .btn-label {
+  display: none;
 }
 
 .disabled {
@@ -82,10 +124,30 @@
   color: #f4f4f4;
 }
 
+@media screen and (max-width: 800px) {
+  .inner {
+    max-width: 224px;
+  }
+}
+
 @media screen and (max-width: 1039px) {
   /* .contact-text {
         font-size: 16px;
     } */
+
+  .email {
+    font-size: 12px;
+    /* font-style: italic; */
+  }
+
+  .label-name,
+  .label-phone,
+  .label-email {
+    display: none;
+
+    /* font-style: normal; */
+    font-weight: 500;
+  }
 
   .btn-label {
     display: none;
@@ -94,7 +156,8 @@
   .delete-btn,
   .edit-btn,
   .call-btn,
-  .message-btn {
+  .message-btn,
+  .fav-btn {
     width: 40px;
   }
 }

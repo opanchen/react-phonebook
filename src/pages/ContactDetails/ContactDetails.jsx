@@ -20,7 +20,7 @@ const ContactDetails = () => {
   // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   if (!contact) return <div>There is no contact...</div>;
 
-  console.log(contact);
+  //   console.log(contact);
   const { name, email, phone, favorite: isFavorite } = contact;
 
   const toggleModal = () => {
