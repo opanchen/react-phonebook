@@ -85,6 +85,15 @@ export const contactsAPI = createApi({
       }),
       invalidatesTags: ["Contact"],
     }),
+
+    sendEmail: builder.mutation({
+      query: ({ id, message }) => ({
+        url: `contacts/${id}/email`,
+        method: "POST",
+        data: { message },
+      }),
+      invalidatesTags: ["Contact"],
+    }),
   }),
 });
 
@@ -95,4 +104,5 @@ export const {
   useUpdateContactMutation,
   useUpdateStatusContactMutation,
   useDeleteContactMutation,
+  useSendEmailMutation,
 } = contactsAPI;

@@ -6,13 +6,13 @@ import {
 import css from "./ContactDetails.module.css";
 import { useState } from "react";
 import { CallIcon, DeleteIcon, EditIcon, MessageIcon } from "helpers/icons";
-import { EditContactForm, Modal } from "components";
+import { EditContactForm, MessageForm, Modal } from "components";
 
 const AVATAR_PATH = "https://cdn-icons-png.flaticon.com/512/1998/1998592.png";
 
 const ContactDetails = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
   const { id } = useParams();
   const [deleteContact] = useDeleteContactMutation();
   const { data: contact } = useGetContactByIdQuery(id);
@@ -21,10 +21,14 @@ const ContactDetails = () => {
   if (!contact) return <div>There is no contact...</div>;
 
   //   console.log(contact);
-  const { name, email, phone, favorite: isFavorite } = contact;
+  const { name, email, phone, favorite: isFavorite, sentMessages } = contact;
 
-  const toggleModal = () => {
-    setIsModalOpen((prevModalState) => !prevModalState);
+  const toggleEditModal = () => {
+    setIsEditModalOpen((prevModalState) => !prevModalState);
+  };
+
+  const toggleMessageModal = () => {
+    setIsMessageModalOpen((prevModalState) => !prevModalState);
   };
 
   const handleDeleteContact = () => {
@@ -54,7 +58,7 @@ const ContactDetails = () => {
             <button
               type="button"
               className={css["edit-btn"]}
-              onClick={toggleModal}
+              onClick={toggleEditModal}
             >
               <span className={css["btn-label"]}>Edit</span>
               <EditIcon size={24} className={css["icon-edit"]} />
@@ -66,7 +70,7 @@ const ContactDetails = () => {
             <button
               className={css["message-btn"]}
               type="button"
-              onClick={() => {}}
+              onClick={toggleMessageModal}
             >
               <span className={css["btn-label"]}>Email</span>
               <MessageIcon size={20} className={css["icon-message"]} />
@@ -81,15 +85,25 @@ const ContactDetails = () => {
             </button>
           </div>
 
-          {isModalOpen && (
-            <Modal onClose={toggleModal}>
+          {isEditModalOpen && (
+            <Modal onClose={toggleEditModal}>
               <EditContactForm
                 id={id}
                 prevName={name}
                 prevNumber={phone}
                 prevEmail={email}
-                closeModal={toggleModal}
+                closeModal={toggleEditModal}
                 avatar={AVATAR_PATH}
+              />
+            </Modal>
+          )}
+
+          {isMessageModalOpen && (
+            <Modal onClose={toggleMessageModal}>
+              <MessageForm
+                id={id}
+                closeModal={toggleMessageModal}
+                messages={sentMessages}
               />
             </Modal>
           )}

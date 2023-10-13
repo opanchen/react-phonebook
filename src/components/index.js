@@ -16,3 +16,4 @@ export * from "./ContactList/ContactListLink/ContactListLink.jsx";
 export * from "./Modal/Modal.jsx";
 export * from "./EditContactForm/EditContactForm.jsx";
 export * from "./Filter/Filter.jsx";
+export * from "./MessageForm/MessageForm.jsx";

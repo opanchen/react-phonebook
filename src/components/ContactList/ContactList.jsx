@@ -2,10 +2,10 @@ import css from "./ContactList.module.css";
 import { ContactListItem } from "./ContactListItem/ContactListItem";
 
 export const ContactList = ({ contacts }) => {
-  // console.log(contacts);
+  console.log(contacts);
   return (
     <ul className={css.list}>
-      {contacts.map(({ _id, name, email, phone, favorite }) => {
+      {contacts.map(({ _id, name, email, phone, favorite, sentMessages }) => {
         return (
           <li key={_id}>
             <ContactListItem
@@ -14,6 +14,7 @@ export const ContactList = ({ contacts }) => {
               email={email}
               phone={phone}
               isFavorite={favorite}
+              messages={sentMessages}
             />
           </li>
         );

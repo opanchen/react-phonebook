@@ -8,6 +8,7 @@ import { BsFillEnvelopeAtFill } from "react-icons/bs";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 
 export const EditIcon = ({ size = 12, color = undefined }) => (
   <BiEdit size={size} color={color} />
@@ -38,4 +39,7 @@ export const AddToFavIcon = ({ size = 12, color = undefined }) => (
 );
 export const RemoveFromFavIcon = ({ size = 12, color = undefined }) => (
   <MdFavorite size={size} color={color} />
+);
+export const InfoIcon = ({ size = 12, color = undefined }) => (
+  <AiOutlineInfoCircle size={size} color={color} />
 );

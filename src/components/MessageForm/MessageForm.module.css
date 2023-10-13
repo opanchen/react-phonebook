@@ -1,0 +1,122 @@
+.wrapper {
+  /* outline: 1px dashed tomato; */
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 8px;
+}
+
+.heading {
+  text-align: center;
+  padding-right: 24px;
+}
+
+.list {
+  /* outline: 1px dashed teal; */
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 4px;
+  min-height: 80px;
+  max-height: 65vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.list::-webkit-scrollbar {
+  margin-left: 2px;
+  width: 2px;
+}
+/* .list::-webkit-scrollbar-track {
+  padding: 4px 0;
+} */
+
+.list::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 4px;
+}
+
+.item {
+  /* outline: 1px dashed tomato; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 4px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
+    0 2px 1px rgba(0, 0, 0, 0.2); */
+}
+
+.message-text {
+  padding-right: 8px;
+
+  font-size: 14px;
+}
+
+.message-date {
+  flex-shrink: 0;
+
+  font-size: 12px;
+  font-style: italic;
+  color: gray;
+}
+
+.input-label {
+  /* outline: 1px dashed green; */
+
+  position: relative;
+}
+
+.info-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: #0000ff;
+  transition: scale 250ms linear, color 250ms linear,
+    background-color 250ms linear;
+}
+
+.info-btn:hover,
+.info-btn:focus {
+  color: #e84a5f;
+  background-color: transparent;
+  scale: 1.1;
+}
+
+.info-pop-up {
+  /* outline: 1px dashed tomato; */
+  padding-right: 28px;
+  max-width: 280px;
+
+  font-size: 14px;
+}
+
+.btn-bar {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+@media screen and (max-width: 319px) {
+  .clear-btn-label {
+    display: none;
+  }
+
+  .clear-btn {
+    width: 40px;
+  }
+}

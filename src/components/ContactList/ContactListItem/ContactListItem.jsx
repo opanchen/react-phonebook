@@ -14,18 +14,30 @@ import {
   useDeleteContactMutation,
   useUpdateStatusContactMutation,
 } from "redux/contacts/contactsSlice";
-import { EditContactForm, Modal } from "components";
+import { EditContactForm, MessageForm, Modal } from "components";
 
 const AVATAR_PATH = "https://cdn-icons-png.flaticon.com/512/1998/1998592.png";
 
-export const ContactListItem = ({ id, name, email, phone, isFavorite }) => {
+export const ContactListItem = ({
+  id,
+  name,
+  email,
+  phone,
+  isFavorite,
+  messages,
+}) => {
   const { media } = useWindowDimensions();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
   const [deleteContact] = useDeleteContactMutation();
   const [toggleIsFavorite] = useUpdateStatusContactMutation();
 
-  const toggleModal = () => {
-    setIsModalOpen((prevModalState) => !prevModalState);
+  const toggleEditModal = () => {
+    setIsEditModalOpen((prevModalState) => !prevModalState);
+  };
+
+  const toggleMessageModal = () => {
+    setIsMessageModalOpen((prevModalState) => !prevModalState);
   };
 
   const handleDeleteContact = () => {
@@ -85,11 +97,19 @@ export const ContactListItem = ({ id, name, email, phone, isFavorite }) => {
           <span className={css["btn-label"]}>Call</span>
           <CallIcon size={24} className={css["icon-call"]} />
         </a>
-        <button className={css["message-btn"]} type="button" onClick={() => {}}>
+        <button
+          className={css["message-btn"]}
+          type="button"
+          onClick={toggleMessageModal}
+        >
           <span className={css["btn-label"]}>Email</span>
           <MessageIcon size={20} className={css["icon-message"]} />
         </button>
-        <button type="button" className={css["edit-btn"]} onClick={toggleModal}>
+        <button
+          type="button"
+          className={css["edit-btn"]}
+          onClick={toggleEditModal}
+        >
           <span className={css["btn-label"]}>Edit</span>
           <EditIcon size={24} className={css["icon-edit"]} />
         </button>
@@ -103,15 +123,25 @@ export const ContactListItem = ({ id, name, email, phone, isFavorite }) => {
         </button>
       </div>
 
-      {isModalOpen && (
-        <Modal onClose={toggleModal}>
+      {isEditModalOpen && (
+        <Modal onClose={toggleEditModal}>
           <EditContactForm
             id={id}
             prevName={name}
             prevNumber={phone}
             prevEmail={email}
-            closeModal={toggleModal}
+            closeModal={toggleEditModal}
             avatar={AVATAR_PATH}
+          />
+        </Modal>
+      )}
+
+      {isMessageModalOpen && (
+        <Modal onClose={toggleMessageModal}>
+          <MessageForm
+            id={id}
+            closeModal={toggleMessageModal}
+            messages={messages}
           />
         </Modal>
       )}
