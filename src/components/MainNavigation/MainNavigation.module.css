@@ -2,3 +2,33 @@
   display: flex;
   gap: 8px;
 }
+
+.link {
+  display: inline-flex;
+
+  font-weight: 700;
+  padding: 8px 0;
+  text-decoration: none;
+  color: #2a363b;
+}
+
+.current {
+  position: relative;
+  color: #e84a5f;
+}
+
+.current::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #e84a5f;
+}
+
+@media screen and (min-width: 480px) {
+  .nav-list {
+    gap: 16px;
+  }
+}

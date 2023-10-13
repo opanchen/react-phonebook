@@ -3,7 +3,7 @@ import css from "./AuthNavigation.module.css";
 
 export const AuthNavigation = () => {
   const authNavLinkClassName = ({ isActive }) =>
-    isActive ? css["link-active"] : css.link;
+    isActive ? `${css.link} ${css.current}` : css.link;
 
   return (
     <ul className={css.nav}>

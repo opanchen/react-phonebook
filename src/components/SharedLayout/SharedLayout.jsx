@@ -8,7 +8,7 @@ import css from "./SharedLayout.module.css";
 export const SharedLayout = () => {
   return (
     <div className={css.layout}>
-      <header>
+      <header className={css.header}>
         <Container>
           <AppBar />
         </Container>
