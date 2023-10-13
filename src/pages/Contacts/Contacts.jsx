@@ -1,9 +1,17 @@
 import { ContactForm, Container, InnerNavigation } from "components";
-import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
+import { Suspense, useEffect } from "react";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import css from "./Contacts.module.css";
 
 const Contacts = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location && location?.pathname === "/contacts")
+      navigate("/contacts/all");
+  }, [location, navigate]);
+
   return (
     <section>
       <Container>
