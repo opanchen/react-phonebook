@@ -110,3 +110,29 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+// PATCH @ users/avatars
+// headers: Authorization: Bearer token
+// body: formData = {avatar: file}
+export const updateAvatar = createAsyncThunk(
+  "auth/updateAvatar",
+  async (formData, { rejectWithValue }) => {
+    try {
+      console.log("fd: ", formData.getAll("avatar"));
+      const res = await phonebookAPI.patch(
+        "/users/avatars",
+        formData
+        // , {
+        // headers: {
+        //   "Content-Type": "multipart/form-data",
+        // },
+        // }
+      );
+      // console.log(res);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error.message);
+    }
+  }
+);

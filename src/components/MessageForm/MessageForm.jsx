@@ -2,7 +2,7 @@ import { useSendEmailMutation } from "redux/contacts/contactsSlice";
 import css from "./MessageForm.module.css";
 import { useState } from "react";
 import { ClearIcon, InfoIcon } from "helpers/icons";
-import { ModalPopUp } from "components/ModalPopUp/ModalPopUp";
+import { ModalPopUp } from "components";
 
 export const MessageForm = ({ id, closeModal, messages }) => {
   const [sendEmail] = useSendEmailMutation();

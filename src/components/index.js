@@ -17,3 +17,6 @@ export * from "./Modal/Modal.jsx";
 export * from "./EditContactForm/EditContactForm.jsx";
 export * from "./Filter/Filter.jsx";
 export * from "./MessageForm/MessageForm.jsx";
+export * from "./ModalPopUp/ModalPopUp.jsx";
+export * from "./FileUploader/FileUploader.jsx";
+export * from "./AvatarForm/AvatarForm.jsx";

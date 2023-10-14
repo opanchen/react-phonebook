@@ -4,6 +4,33 @@
   gap: 12px;
 }
 
+.edit-avatar-btn {
+  padding: 0;
+  width: auto;
+  height: auto;
+  border-radius: 50px;
+  /* width: 16px;
+  height: 16px; */
+}
+
+.thumb {
+  /* outline: 1px dashed teal; */
+
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+
+  overflow: hidden;
+}
+
+.avatar {
+  object-fit: cover;
+}
+
 .username {
   font-weight: 700;
   text-align: center;

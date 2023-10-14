@@ -1,0 +1,52 @@
+.wrapper {
+  padding: 8px;
+
+  min-width: 200px;
+  min-height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  text-align: center;
+}
+
+.thumb {
+  /* outline: 1px dashed teal; */
+
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  border: 1px solid black;
+
+  overflow: hidden;
+}
+
+.avatar {
+  object-fit: cover;
+}
+
+.form {
+  /* outline: 1px dashed tomato; */
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+@media screen and (min-width: 480px) {
+  .form {
+    flex-direction: row;
+  }
+}
