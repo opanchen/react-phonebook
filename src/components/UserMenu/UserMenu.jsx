@@ -34,20 +34,22 @@ export const UserMenu = () => {
             src={user.avatar}
             className={css.avatar}
             alt="user avatar"
-            width={48}
+            width={56}
           />
         </div>
       </button>
 
-      <p className={css.username}>{user.name ? user.name : "User"}</p>
-      <button
-        className={css["btn-logout"]}
-        type="button"
-        onClick={handleLogOut}
-      >
-        <span className={css["btn-label"]}>Logout</span>
-        <LogOutIcon size={24} />
-      </button>
+      <div className={css.inner}>
+        <p className={css.username}>{user.name ? user.name : "User"}</p>
+        <button
+          className={css["btn-logout"]}
+          type="button"
+          onClick={handleLogOut}
+        >
+          <span className={css["btn-label"]}>Logout</span>
+          <LogOutIcon size={24} />
+        </button>
+      </div>
 
       {isModalOpen && (
         <Modal onClose={toggleModal}>

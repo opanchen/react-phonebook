@@ -20,8 +20,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   border-radius: 50px;
 
   overflow: hidden;
@@ -29,6 +29,13 @@
 
 .avatar {
   object-fit: cover;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 4px;
 }
 
 .username {
@@ -42,6 +49,17 @@
 }
 
 @media screen and (max-width: 399px) {
+  .thumb {
+    /* width: 40px; */
+    /* height: 40px; */
+    width: 36px;
+    height: 36px;
+  }
+
+  .username {
+    display: none;
+  }
+
   .wrapper {
     gap: 8px;
   }
@@ -52,5 +70,6 @@
 
   .btn-logout {
     width: 40px;
+    height: 36px;
   }
 }
