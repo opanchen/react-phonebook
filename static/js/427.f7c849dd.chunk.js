@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_phonebook=self.webpackChunkreact_phonebook||[]).push([[427],{7427:function(e,n,c){c.r(n);var o=c(2875),r=c(184);n.default=function(){return(0,r.jsxs)("div",{children:[(0,r.jsx)("h1",{children:"Login page"}),(0,r.jsx)(o.U0,{})]})}}}]);
-//# sourceMappingURL=427.f7c849dd.chunk.js.map
