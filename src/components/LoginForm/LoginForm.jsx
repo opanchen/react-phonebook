@@ -49,7 +49,7 @@ export const LoginForm = () => {
 
   return (
     <form className={css.form} autoComplete="off" onSubmit={handleSubmit}>
-      <label htmlFor={emailInputId}>
+      <label className={css["form-label"]} htmlFor={emailInputId}>
         Email
         <input
           type="email"
@@ -58,10 +58,11 @@ export const LoginForm = () => {
           required
           onChange={handleChange}
           value={email}
+          className={css["form-input"]}
         />
       </label>
 
-      <label htmlFor={passwordInputId}>
+      <label className={css["form-label"]} htmlFor={passwordInputId}>
         Password
         <input
           type="password"
@@ -70,11 +71,12 @@ export const LoginForm = () => {
           required
           onChange={handleChange}
           value={password}
+          className={css["form-input"]}
         />
       </label>
 
       <div className={css["buttons-bar"]}>
-        <button type="submit">
+        <button className={css["submit-btn"]} type="submit">
           Log In
           <LogInIcon size={24} />
         </button>
@@ -82,9 +84,13 @@ export const LoginForm = () => {
           type="button"
           onClick={reset}
           disabled={!email && !password}
-          className={!email && !password ? css.disabled : undefined}
+          className={
+            !email && !password
+              ? `${css.disabled} ${css["clear-btn"]}`
+              : css["clear-btn"]
+          }
         >
-          Clear
+          <span className={css["clear-btn-label"]}>Clear</span>
           <ClearIcon size={24} />
         </button>
       </div>

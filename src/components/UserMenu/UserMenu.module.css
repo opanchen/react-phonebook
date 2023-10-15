@@ -5,12 +5,16 @@
 }
 
 .edit-avatar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
   padding: 0;
-  width: auto;
-  height: auto;
+  border: 1px solid;
   border-radius: 50px;
-  /* width: 16px;
-  height: 16px; */
+  transition: scale 250ms linear, color 250ms linear,
+    background-color 250ms linear;
 }
 
 .thumb {
@@ -44,8 +48,35 @@
 }
 
 .btn-logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   width: 80px;
+  padding: 16px 8px;
+  height: 24px;
+  cursor: pointer;
   flex-shrink: 0;
+
+  border: 1px solid;
+  border-radius: 4px;
+  transition: scale 250ms linear, color 250ms linear,
+    background-color 250ms linear;
+}
+
+.btn-logout:hover,
+.btn-logout:focus,
+.edit-avatar-btn:hover,
+.edit-avatar-btn:focus {
+  color: #e84a5f;
+  background-color: #e2ddf8;
+  scale: 1.1;
+}
+
+.btn-logout:active,
+.edit-avatar-btn:active {
+  background-color: #5f6775;
+  color: #f4f4f4;
 }
 
 @media screen and (max-width: 399px) {

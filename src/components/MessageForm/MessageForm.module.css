@@ -22,6 +22,7 @@
   padding: 4px;
   min-height: 80px;
   max-height: 65vh;
+  max-width: 70vw;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
@@ -65,10 +66,54 @@
   color: gray;
 }
 
+.form-input {
+  height: 24px;
+}
+
 .input-label {
   /* outline: 1px dashed green; */
 
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.submit-btn,
+.clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 120px;
+  padding: 16px 8px;
+  height: 24px;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  transition: scale 250ms linear, color 250ms linear,
+    background-color 250ms linear;
+}
+
+.submit-btn:hover,
+.submit-btn:focus,
+.clear-btn:hover,
+.clear-btn:focus {
+  color: #e84a5f;
+  background-color: #e2ddf8;
+  scale: 1.1;
+}
+
+.submit-btn:active,
+.clear-btn:active {
+  background-color: #5f6775;
+  color: #f4f4f4;
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 .info-btn {

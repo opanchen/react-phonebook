@@ -25,7 +25,29 @@
   position: absolute;
   top: 8px;
   right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   padding: 4px;
+
   width: 32px;
   height: 32px;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: scale 250ms linear, color 250ms linear,
+    background-color 250ms linear;
+}
+
+.btn-close:hover,
+.btn-close:focus {
+  color: #e84a5f;
+  background-color: #e2ddf8;
+  scale: 1.1;
+}
+
+.btn-close:active {
+  background-color: #5f6775;
+  color: #f4f4f4;
 }

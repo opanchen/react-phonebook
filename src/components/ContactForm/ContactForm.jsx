@@ -4,12 +4,13 @@ import css from "./ContactForm.module.css";
 import { ClearIcon } from "helpers/icons";
 import { toast } from "react-toastify";
 import { useAddContactMutation } from "redux/contacts/contactsSlice";
+import { Spinner } from "components";
 
 export const ContactForm = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
-  const [addContact, res] = useAddContactMutation();
+  const [addContact, { isLoading: isAdding }] = useAddContactMutation();
 
   const nameInputId = nanoid();
   const numberInputId = nanoid();
@@ -61,7 +62,7 @@ export const ContactForm = () => {
 
   return (
     <form className={css.form} autoComplete="off" onSubmit={handleSubmit}>
-      <label htmlFor={nameInputId}>
+      <label className={css["form-label"]} htmlFor={nameInputId}>
         Name
         <input
           type="text"
@@ -72,10 +73,11 @@ export const ContactForm = () => {
           required
           onChange={handleChange}
           value={name}
+          className={css["form-input"]}
         />
       </label>
 
-      <label htmlFor={numberInputId}>
+      <label className={css["form-label"]} htmlFor={numberInputId}>
         Number
         <input
           type="tel"
@@ -86,10 +88,11 @@ export const ContactForm = () => {
           required
           onChange={handleChange}
           value={number}
+          className={css["form-input"]}
         />
       </label>
 
-      <label htmlFor={emailInputId}>
+      <label className={css["form-label"]} htmlFor={emailInputId}>
         Email
         <input
           type="email"
@@ -98,18 +101,25 @@ export const ContactForm = () => {
           required
           onChange={handleChange}
           value={email}
+          className={css["form-input"]}
         />
       </label>
 
       <div className={css["buttons-bar"]}>
-        <button type="submit">Add contact</button>
+        <button className={css["add-btn"]} type="submit">
+          {isAdding ? <Spinner size={14} /> : "Add contact"}
+        </button>
         <button
           type="button"
           onClick={reset}
           disabled={!name && !number}
-          className={!name && !number ? css.disabled : undefined}
+          className={
+            !name && !number
+              ? `${css.disabled} ${css["clear-btn"]}`
+              : css["clear-btn"]
+          }
         >
-          Clear
+          <span className={css["clear-btn-label"]}>Clear</span>
           <ClearIcon size={24} />
         </button>
       </div>

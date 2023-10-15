@@ -63,7 +63,7 @@ export const RegisterForm = () => {
 
   return (
     <form className={css.form} autoComplete="off" onSubmit={handleSubmit}>
-      <label htmlFor={usernameInputId}>
+      <label className={css["form-label"]} htmlFor={usernameInputId}>
         Name
         <input
           type="text"
@@ -71,10 +71,11 @@ export const RegisterForm = () => {
           id={usernameInputId}
           onChange={handleChange}
           value={username}
+          className={css["form-input"]}
         />
       </label>
 
-      <label htmlFor={emailInputId}>
+      <label className={css["form-label"]} htmlFor={emailInputId}>
         Email
         <input
           type="email"
@@ -83,10 +84,11 @@ export const RegisterForm = () => {
           required
           onChange={handleChange}
           value={email}
+          className={css["form-input"]}
         />
       </label>
 
-      <label htmlFor={passwordInputId}>
+      <label className={css["form-label"]} htmlFor={passwordInputId}>
         Password
         <input
           type="password"
@@ -95,20 +97,25 @@ export const RegisterForm = () => {
           required
           onChange={handleChange}
           value={password}
+          className={css["form-input"]}
         />
       </label>
 
       <div className={css["buttons-bar"]}>
-        <button type="submit">Register</button>
+        <button className={css["submit-btn"]} type="submit">
+          Register
+        </button>
         <button
           type="button"
           onClick={reset}
           disabled={!username && !email && !password}
           className={
-            !username && !email && !password ? css.disabled : undefined
+            !username && !email && !password
+              ? `${css.disabled} ${css["clear-btn"]}`
+              : css["clear-btn"]
           }
         >
-          Clear
+          <span className={css["clear-btn-label"]}>Clear</span>
           <ClearIcon size={24} onClick={reset} />
         </button>
       </div>

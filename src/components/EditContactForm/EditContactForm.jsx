@@ -7,6 +7,7 @@ import {
   useUpdateContactMutation,
 } from "redux/contacts/contactsSlice";
 import { ClearIcon } from "helpers/icons";
+import { Spinner } from "components";
 
 export const EditContactForm = ({
   id,
@@ -22,7 +23,7 @@ export const EditContactForm = ({
 
   const { data: contacts } = useGetContactsQuery();
   //   console.log(contacts);
-  const [updateContact] = useUpdateContactMutation();
+  const [updateContact, { isLoading: isUpdating }] = useUpdateContactMutation();
 
   const nameInputId = nanoid();
   const numberInputId = nanoid();
@@ -112,7 +113,7 @@ export const EditContactForm = ({
         onSubmit={handleSubmit}
       >
         <p className={css["form-title"]}>Edit contact:</p>
-        <label htmlFor={nameInputId}>
+        <label className={css["form-label"]} htmlFor={nameInputId}>
           Name
           <input
             type="text"
@@ -123,10 +124,11 @@ export const EditContactForm = ({
             required
             onChange={handleChange}
             value={name}
+            className={css["form-input"]}
           />
         </label>
 
-        <label htmlFor={numberInputId}>
+        <label className={css["form-label"]} htmlFor={numberInputId}>
           Number
           <input
             type="tel"
@@ -137,10 +139,11 @@ export const EditContactForm = ({
             required
             onChange={handleChange}
             value={number}
+            className={css["form-input"]}
           />
         </label>
 
-        <label htmlFor={emailInputId}>
+        <label className={css["form-label"]} htmlFor={emailInputId}>
           Email
           <input
             type="email"
@@ -151,12 +154,13 @@ export const EditContactForm = ({
             required
             onChange={handleChange}
             value={email}
+            className={css["form-input"]}
           />
         </label>
 
         <div className={css["buttons-bar"]}>
           <button type="submit" className={css["submit-btn"]}>
-            Save
+            {isUpdating ? <Spinner size={14} /> : "Save"}
           </button>
           <button
             type="button"

@@ -1,11 +1,13 @@
-import { RegisterForm } from "components";
+import { Container, RegisterForm } from "components";
 
 const Register = () => {
   return (
-    <div>
-      <h1>Register page</h1>
-      <RegisterForm />
-    </div>
+    <Container>
+      <div>
+        <h1>Register page</h1>
+        <RegisterForm />
+      </div>
+    </Container>
   );
 };
 

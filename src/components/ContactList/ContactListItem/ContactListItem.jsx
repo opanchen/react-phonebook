@@ -14,7 +14,7 @@ import {
   useDeleteContactMutation,
   useUpdateStatusContactMutation,
 } from "redux/contacts/contactsSlice";
-import { EditContactForm, MessageForm, Modal } from "components";
+import { EditContactForm, MessageForm, Modal, Spinner } from "components";
 
 const AVATAR_PATH = "https://cdn-icons-png.flaticon.com/512/1998/1998592.png";
 
@@ -29,8 +29,9 @@ export const ContactListItem = ({
   const { media } = useWindowDimensions();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
-  const [deleteContact] = useDeleteContactMutation();
-  const [toggleIsFavorite] = useUpdateStatusContactMutation();
+  const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
+  const [toggleIsFavorite, { isLoading: isFavChangind }] =
+    useUpdateStatusContactMutation();
 
   const toggleEditModal = () => {
     setIsEditModalOpen((prevModalState) => !prevModalState);
@@ -80,17 +81,24 @@ export const ContactListItem = ({
           type="button"
           onClick={favoriteHandler}
         >
-          <span className={css["btn-label"]}>
-            {isFavorite ? "Remove from favorite" : "Add to favorite"}
-          </span>
-          {isFavorite ? (
-            <RemoveFromFavIcon
-              size={20}
-              color={"#e84a5f"}
-              className={css["icon-fav-remove"]}
-            />
+          {isFavChangind ? (
+            <Spinner size={14} />
           ) : (
-            <AddToFavIcon size={20} className={css["icon-fav-add"]} />
+            <>
+              {" "}
+              <span className={css["btn-label"]}>
+                {isFavorite ? "Remove from favorite" : "Add to favorite"}
+              </span>
+              {isFavorite ? (
+                <RemoveFromFavIcon
+                  size={20}
+                  color={"#e84a5f"}
+                  className={css["icon-fav-remove"]}
+                />
+              ) : (
+                <AddToFavIcon size={20} className={css["icon-fav-add"]} />
+              )}
+            </>
           )}
         </button>
         <a href={`tel:${phone}`} className={css["call-btn"]}>
@@ -118,8 +126,14 @@ export const ContactListItem = ({
           type="button"
           onClick={handleDeleteContact}
         >
-          <span className={css["btn-label"]}>Delete</span>
-          <DeleteIcon size={24} className={css["icon-del"]} />
+          {isDeleting ? (
+            <Spinner size={14} />
+          ) : (
+            <>
+              <span className={css["btn-label"]}>Delete</span>
+              <DeleteIcon size={24} className={css["icon-del"]} />
+            </>
+          )}
         </button>
       </div>
 

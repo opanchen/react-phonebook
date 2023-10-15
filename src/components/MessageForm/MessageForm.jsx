@@ -2,10 +2,10 @@ import { useSendEmailMutation } from "redux/contacts/contactsSlice";
 import css from "./MessageForm.module.css";
 import { useState } from "react";
 import { ClearIcon, InfoIcon } from "helpers/icons";
-import { ModalPopUp } from "components";
+import { ModalPopUp, Spinner } from "components";
 
 export const MessageForm = ({ id, closeModal, messages }) => {
-  const [sendEmail] = useSendEmailMutation();
+  const [sendEmail, { isLoading: isSending }] = useSendEmailMutation();
   const [message, setMessage] = useState("");
   const [isModalPopUpShown, setIsModalPopUpShown] = useState(false);
 
@@ -37,7 +37,7 @@ export const MessageForm = ({ id, closeModal, messages }) => {
   return (
     <div className={css.wrapper}>
       <div>
-        <h3 className={css.heading}>Your sent messages</h3>
+        <h3 className={css.heading}>Messages</h3>
         <ul className={css.list}>
           {messages.map(({ message, _id, date }) => {
             console.log(date);
@@ -59,6 +59,7 @@ export const MessageForm = ({ id, closeModal, messages }) => {
             name="message"
             value={message}
             onChange={handleChange}
+            className={css["form-input"]}
           />
           <button
             type="button"
@@ -71,7 +72,7 @@ export const MessageForm = ({ id, closeModal, messages }) => {
 
         <div className={css["btn-bar"]}>
           <button type="submit" className={css["submit-btn"]}>
-            Send
+            {isSending ? <Spinner size={14} /> : "Send"}
           </button>
 
           <button

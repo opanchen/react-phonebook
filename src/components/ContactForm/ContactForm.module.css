@@ -3,14 +3,14 @@
   flex-direction: column;
   gap: 24px;
 
-  /* width: 288px; */
+  width: 268px;
   padding: 8px;
   border: 1px solid;
   border-radius: 4px;
   background-color: #fff;
 }
 
-label {
+.form-label {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -18,7 +18,7 @@ label {
   /* width: 270px; */
 }
 
-input {
+.form-input {
   height: 24px;
   /* width: 270px; */
   max-width: 100%;
@@ -29,7 +29,8 @@ input {
   justify-content: space-around;
 }
 
-button {
+.add-btn,
+.clear-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,28 +47,59 @@ button {
     background-color 250ms linear;
 }
 
-button.disabled {
+.disabled {
   pointer-events: none;
 }
 
-button:hover,
-button:focus {
+.add-btn:hover,
+.add-btn:focus,
+.clear-btn:hover,
+.clear-btn:focus {
   color: #e84a5f;
   background-color: #e2ddf8;
   scale: 1.1;
 }
 
-button:active {
+.add-btn:active,
+.clear-btn:active {
   background-color: #5f6775;
   color: #f4f4f4;
 }
 
-@media screen and (max-width: 399px) {
-  .contact-form {
-    width: 272px;
+@media screen and (max-width: 319px) {
+  .clear-btn-label {
+    display: none;
   }
+
+  .clear-btn {
+    width: 40px;
+  }
+
+  .form {
+    width: 236px;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  /* .form {
+    width: 256px;
+  } */
 
   /* input {
     width: 256px;
   } */
+}
+
+@media screen and (min-width: 768px) and (max-width: 1040px) {
+  .clear-btn-label {
+    display: none;
+  }
+
+  .clear-btn {
+    width: 40px;
+  }
+
+  .form {
+    width: 236px;
+  }
 }

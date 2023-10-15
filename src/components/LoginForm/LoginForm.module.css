@@ -2,16 +2,21 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 288px;
+  width: 280px;
   padding: 8px;
   border: 1px solid;
   border-radius: 4px;
   background-color: #fff;
 }
 
-input {
+.form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-input {
   height: 24px;
-  /* width: 270px; */
 }
 
 .buttons-bar {
@@ -19,16 +24,48 @@ input {
   justify-content: space-around;
 }
 
-button.disabled {
+.submit-btn,
+.clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 120px;
+  padding: 16px 8px;
+  height: 24px;
+  transition: scale 250ms linear, color 250ms linear,
+    background-color 250ms linear;
+}
+
+.submit-btn:hover,
+.submit-btn:focus,
+.clear-btn:hover,
+.clear-btn:focus {
+  color: #e84a5f;
+  background-color: #e2ddf8;
+  scale: 1.1;
+}
+
+.submit-btn:active,
+.clear-btn:active {
+  background-color: #5f6775;
+  color: #f4f4f4;
+}
+
+.disabled {
   pointer-events: none;
 }
 
-@media screen and (max-width: 399px) {
-  .login-form {
-    width: 272px;
+@media screen and (max-width: 319px) {
+  .clear-btn-label {
+    display: none;
   }
 
-  /* input {
-    width: 256px;
-  } */
+  .clear-btn {
+    width: 40px;
+  }
+
+  .form {
+    width: 236px;
+  }
 }
