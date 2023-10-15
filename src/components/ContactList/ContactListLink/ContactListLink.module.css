@@ -1,10 +1,50 @@
+.link {
+  color: inherit;
+}
+
 .wrapper {
-  outline: 1px dashed teal;
+  /* outline: 1px dashed teal; */
 
   display: flex;
   align-items: center;
   /* justify-content: space-between; */
 
   gap: 4px;
+  padding: 4px;
+
   /* width: 100%; */
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
+    0 2px 1px rgba(0, 0, 0, 0.2);
+  background-color: #e6dddd;
+
+  transition: background-color 250ms linear;
+}
+
+.wrapper:hover,
+.wrapper:focus {
+  /* color: #e84a5f; */
+  background-color: #e2ddf8;
+  /* scale: 1.1; */
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: scroll;
+}
+
+.name {
+  font-weight: 500;
+}
+
+.name,
+.phone {
+  font-size: 14px;
+}
+
+.email {
+  font-size: 12px;
+  font-style: italic;
 }
