@@ -31,12 +31,15 @@
   background-color: #a8a8a8;
   border-radius: 4px;
   padding: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
+    0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .info {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  padding: 8px 0;
 
   overflow: scroll;
 

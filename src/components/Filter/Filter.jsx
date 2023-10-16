@@ -20,7 +20,12 @@ export const Filter = () => {
     <div className={css.wrapper}>
       <label className={css.filter}>
         Find contact by name
-        <input type="text" value={filter} onChange={changeFilter} />
+        <input
+          type="text"
+          placeholder="Enter contact's name..."
+          value={filter}
+          onChange={changeFilter}
+        />
       </label>
     </div>
   );
