@@ -17,6 +17,7 @@ import {
 import {
   Container,
   EditContactForm,
+  FallbackView,
   MessageForm,
   Modal,
   Spinner,
@@ -33,7 +34,7 @@ const ContactDetails = () => {
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
   const [toggleIsFavorite, { isLoading: isFavChangind }] =
     useUpdateStatusContactMutation();
-  const { data: contact, isLoading } = useGetContactByIdQuery(id);
+  const { data: contact, isLoading, isError } = useGetContactByIdQuery(id);
 
   const navigate = useNavigate();
   const { width } = useWindowDimensions();
@@ -44,8 +45,16 @@ const ContactDetails = () => {
     navigate("/contacts");
   }, [navigate, width]);
 
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  if (!contact) return <div>There is no contact...</div>;
+  // !
+  if (!isError || !contact)
+    return (
+      <FallbackView
+        type="error"
+        message={
+          "Something went wrong... Information about this contact isn't available. Please try again later."
+        }
+      />
+    );
 
   //   console.log(contact);
   const { name, email, phone, favorite: isFavorite, sentMessages } = contact;

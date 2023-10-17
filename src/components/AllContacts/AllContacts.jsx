@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { ContactList, Filter, Spinner } from "components";
+import { ContactList, FallbackView, Filter, Spinner } from "components";
 import { useSelector } from "react-redux";
 import { useGetContactsQuery } from "redux/contacts/contactsSlice";
 import { selectFilterValue } from "redux/contacts/selectors";
@@ -24,7 +24,28 @@ const AllContacts = () => {
     <section className={css.section}>
       <Filter />
       {isLoading && <Spinner size={20} />}
-      {isError && <div>Error</div>}
+
+      {isError && (
+        <FallbackView
+          type="error"
+          message={"Something went wrong... Please try again later."}
+        />
+      )}
+
+      {!isError && contacts?.length === 0 && (
+        <FallbackView
+          type="warning"
+          message={"Your phonebook is empty. There aren't any contacts yet.."}
+        />
+      )}
+
+      {contacts?.length > 0 && visibleContacts?.length === 0 && (
+        <FallbackView
+          type="warning"
+          message={"Contacts with this name weren't found."}
+        />
+      )}
+
       {contacts && contacts.length > 0 && (
         <ContactList contacts={visibleContacts} />
       )}
