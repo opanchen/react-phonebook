@@ -48,8 +48,6 @@
   padding: 8px 4px;
   border: 1px solid gray;
   border-radius: 4px;
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
-    0 2px 1px rgba(0, 0, 0, 0.2); */
 }
 
 .message-text {
@@ -63,7 +61,7 @@
 
   font-size: 12px;
   font-style: italic;
-  color: gray;
+  color: var(--color-gray);
 }
 
 .form-input {
@@ -101,8 +99,8 @@
 .submit-btn:focus,
 .clear-btn:hover,
 .clear-btn:focus {
-  color: #e84a5f;
-  background-color: #e2ddf8;
+  color: var(--color-accent-primary);
+  background-color: var(--color-accent-secondary);
   scale: 1.1;
 }
 
@@ -125,6 +123,7 @@
   height: 24px;
   padding: 0;
   border: none;
+
   background-color: transparent;
   color: #0000ff;
   transition: scale 250ms linear, color 250ms linear,
@@ -133,7 +132,7 @@
 
 .info-btn:hover,
 .info-btn:focus {
-  color: #e84a5f;
+  color: var(--color-accent-primary);
   background-color: transparent;
   scale: 1.1;
 }

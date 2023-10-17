@@ -1,19 +1,13 @@
 .wrapper {
   /* outline: 1px dashed blue; */
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px;
-  /* width: calc(100vw - 280px - 32px - 8px); */
   max-width: 1200px;
 
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
-    0 2px 1px rgba(0, 0, 0, 0.2);
-  background-color: #e6dddd;
-
-  /* gap: 4px; */
-  /* width: 100%; */
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-background-secondary);
 }
 
 .inner {
@@ -21,18 +15,14 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  /* max-width: 200px; */
   padding-right: 8px;
-
-  /* max-width: 180px; */
 }
 
 .image {
-  background-color: #a8a8a8;
-  border-radius: 4px;
   padding: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
-    0 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: var(--color-gray);
+  box-shadow: var(--box-shadow);
 }
 
 .info {
@@ -40,12 +30,7 @@
   flex-direction: column;
   gap: 4px;
   padding: 8px 0;
-
   overflow: scroll;
-
-  /* flex-shrink: 1; */
-  /* max-width: 100%; */
-  /* padding-right: 8px; */
 }
 
 .name,
@@ -55,15 +40,12 @@
 }
 
 .email {
-  /* font-size: 12px; */
   font-style: italic;
 }
 
 .label-name,
 .label-phone,
 .label-email {
-  /* display: none; */
-
   font-style: normal;
   font-weight: 500;
 }
@@ -71,7 +53,6 @@
 .btn-bar {
   display: flex;
   gap: 8px;
-  /* flex-shrink: 0; */
 }
 
 .message-btn,
@@ -87,7 +68,6 @@
   height: 24px;
   cursor: pointer;
   flex-shrink: 0;
-
   border: 1px solid;
   border-radius: 4px;
   transition: scale 250ms linear, color 250ms linear,
@@ -107,25 +87,20 @@
 }
 
 .call-btn {
-  width: 80px;
-  flex-shrink: 0;
-  color: rgb(0, 0, 0);
-  background-color: rgb(239, 239, 239);
-  margin: 0;
-  font-size: 13.333px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  /* width: 120px; */
-  /* padding: 16px 8px;
-  height: 24px; */
-  cursor: pointer;
   flex-shrink: 0;
-
+  gap: 4px;
+  width: 80px;
+  margin: 0;
   border: 1px solid;
   border-radius: 4px;
+
+  font-size: 13.333px;
+  color: var(--color-text-primary);
+  background-color: rgb(239, 239, 239);
+  cursor: pointer;
   transition: scale 250ms linear, color 250ms linear,
     background-color 250ms linear;
 }
@@ -144,8 +119,8 @@
 .edit-btn:focus,
 .delete-btn:hover,
 .delete-btn:focus {
-  color: #e84a5f;
-  background-color: #e2ddf8;
+  color: var(--color-accent-primary);
+  background-color: var(--color-accent-secondary);
   scale: 1.1;
 }
 

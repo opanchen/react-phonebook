@@ -8,7 +8,7 @@
 .avatar {
   border-radius: 4px;
   padding: 4px;
-  background-color: #a8a8a8;
+  background-color: var(--color-gray);
 }
 
 .contact-form {
@@ -47,15 +47,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   gap: 4px;
   width: 120px;
-  padding: 16px 8px;
   height: 24px;
-  cursor: pointer;
-  flex-shrink: 0;
-
+  padding: 16px 8px;
   border: 1px solid;
   border-radius: 4px;
+  cursor: pointer;
   transition: scale 250ms linear, color 250ms linear,
     background-color 250ms linear;
 }
@@ -64,8 +63,8 @@
 .submit-btn:focus,
 .clear-btn:hover,
 .clear-btn:focus {
-  color: #e84a5f;
-  background-color: #e2ddf8;
+  color: var(--color-accent-primary);
+  background-color: var(--color-accent-secondary);
   scale: 1.1;
 }
 

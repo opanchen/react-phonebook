@@ -1,0 +1,26 @@
+.select-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 4px;
+  width: 120px;
+  padding: 16px 8px;
+  height: 24px;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 4px;
+  transition: scale 250ms linear, color 250ms linear,
+    background-color 250ms linear;
+}
+
+.select-btn:focus {
+  color: var(--color-accent-primary);
+  background-color: var(--color-accent-secondary);
+  scale: 1.1;
+}
+
+.select-btn:active {
+  background-color: #5f6775;
+  color: #f4f4f4;
+}

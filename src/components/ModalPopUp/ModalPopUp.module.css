@@ -42,8 +42,8 @@
 
 .btn-close:hover,
 .btn-close:focus {
-  color: #e84a5f;
-  background-color: #e2ddf8;
+  color: var(--color-accent-primary);
+  background-color: var(--color-accent-secondary);
   scale: 1.1;
 }
 

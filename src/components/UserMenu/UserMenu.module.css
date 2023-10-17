@@ -20,14 +20,12 @@
 .thumb {
   /* outline: 1px dashed teal; */
 
-  /* position: relative; */
   display: flex;
   justify-content: center;
   align-items: center;
   width: 56px;
   height: 56px;
   border-radius: 50px;
-
   overflow: hidden;
 }
 
@@ -68,8 +66,8 @@
 .btn-logout:focus,
 .edit-avatar-btn:hover,
 .edit-avatar-btn:focus {
-  color: #e84a5f;
-  background-color: #e2ddf8;
+  color: var(--color-accent-primary);
+  background-color: var(--color-accent-secondary);
   scale: 1.1;
 }
 
@@ -81,8 +79,6 @@
 
 @media screen and (max-width: 399px) {
   .thumb {
-    /* width: 40px; */
-    /* height: 40px; */
     width: 36px;
     height: 36px;
   }

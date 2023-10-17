@@ -1,13 +1,11 @@
 .wrapper {
-  padding: 8px;
-
-  min-width: 200px;
-  min-height: 200px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  min-width: 200px;
+  min-height: 200px;
+  padding: 8px;
 }
 
 .title {
@@ -17,15 +15,13 @@
 .thumb {
   /* outline: 1px dashed teal; */
 
-  /* position: relative; */
   display: flex;
   justify-content: center;
   align-items: center;
   width: 120px;
   height: 120px;
   border-radius: 12px;
-  border: 1px solid black;
-
+  border: 1px solid var(--color-text-primary);
   overflow: hidden;
 }
 
@@ -39,6 +35,33 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 4px;
+  width: 120px;
+  padding: 16px 8px;
+  height: 24px;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 4px;
+  transition: scale 250ms linear, color 250ms linear,
+    background-color 250ms linear;
+}
+
+.submit-btn:focus {
+  color: var(--color-accent-primary);
+  background-color: var(--color-accent-secondary);
+  scale: 1.1;
+}
+
+.submit-btn:active {
+  background-color: #5f6775;
+  color: #f4f4f4;
 }
 
 .disabled {

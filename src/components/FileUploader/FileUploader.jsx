@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { toast } from "react-toastify";
+import css from "./FileUploader.module.css";
 
 export const FileUploader = ({ onFileSelect }) => {
   const fileInput = useRef(null);
@@ -35,7 +36,7 @@ export const FileUploader = ({ onFileSelect }) => {
       />
       <button
         onClick={(e) => fileInput.current && fileInput.current.click()}
-        className="btn btn-primary"
+        className={css["select-btn"]}
         type="button"
       >
         {isFileSelected ? "New file is selected..." : "Select new file"}

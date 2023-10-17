@@ -51,7 +51,11 @@ export const AvatarForm = ({ closeModal }) => {
         <FileUploader onFileSelect={handleFileSelect} />
 
         <button
-          className={!selectedFile ? css.disabled : undefined}
+          className={
+            !selectedFile
+              ? `${css.disabled} ${css["submit-btn"]}`
+              : css["submit-btn"]
+          }
           type="submit"
           disabled={!selectedFile}
         >

@@ -1,5 +1,17 @@
 @import-normalize; /* bring in normalize.css styles */
 
+:root {
+  --color-background-primary: #eff1ea;
+  --color-background-secondary: #e6dddd;
+  --color-text-primary: #2a363b;
+  --color-white: #fff;
+  --color-gray: #a8a8a8;
+  --color-accent-primary: #e84a5f;
+  --color-accent-secondary: #e2ddf8;
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
+    0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
 img {
   display: block;
   max-width: 100%;

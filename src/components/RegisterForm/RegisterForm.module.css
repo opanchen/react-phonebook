@@ -6,6 +6,7 @@
   padding: 8px;
   border: 1px solid;
   border-radius: 4px;
+
   background-color: #fff;
 }
 
@@ -30,7 +31,6 @@
   height: 24px;
   cursor: pointer;
   flex-shrink: 0;
-
   border: 1px solid;
   border-radius: 4px;
   transition: scale 250ms linear, color 250ms linear,
@@ -45,8 +45,8 @@
 .submit-btn:focus,
 .clear-btn:hover,
 .clear-btn:focus {
-  color: #e84a5f;
-  background-color: #e2ddf8;
+  color: var(--color-accent-primary);
+  background-color: var(--color-accent-secondary);
   scale: 1.1;
 }
 
@@ -73,14 +73,4 @@
   .form {
     width: 236px;
   }
-}
-
-@media screen and (max-width: 399px) {
-  /* .register-form {
-    width: 272px;
-  } */
-
-  /* input {
-     width: 256px
-    } */
 }

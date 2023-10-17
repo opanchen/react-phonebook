@@ -9,7 +9,6 @@
   /* outline: 1px dashed blue; */
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   width: 100%;
 }
 
@@ -23,13 +22,11 @@
 @media screen and (min-width: 1200px) {
   .inner {
     gap: 0;
-    /* justify-content: space-around; */
-    /* justify-content: space-between; */
   }
 
   .contacts-box {
     /* outline: 1px dashed blue; */
-    /* width: auto; */
+
     max-width: 1200px;
     margin-left: auto;
   }
