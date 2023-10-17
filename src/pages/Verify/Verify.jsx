@@ -2,9 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import css from "./Verify.module.css";
+import { Container, FallbackView, Spinner } from "components";
 
 const Verify = () => {
   const [verified, setVerified] = useState(false);
+  const [timer, setTimer] = useState(100);
   const { token } = useParams();
   const navigate = useNavigate();
 
@@ -36,20 +38,53 @@ const Verify = () => {
     verifyUser();
   }, [token]);
 
+  useEffect(() => {
+    if (!verified) return;
+
+    const interval = setInterval(() => setTimer((sec) => sec - 1), 1000);
+
+    if (timer === 0) {
+      clearInterval(interval);
+      navigate("/login");
+    }
+
+    return () => clearInterval(interval);
+  }, [navigate, verified, timer]);
+
   return (
-    <section className={css.wrapper}>
-      <h1>Verification page</h1>
-      {verified ? (
-        <div>
-          <p>Email was verified successfully!</p>
-          <Link to="/login">Go to login page</Link>
-        </div>
-      ) : (
-        <div>
-          <p>Email is not verified</p>
-        </div>
-      )}
-    </section>
+    <Container>
+      <section className={css.wrapper}>
+        <h1>Verification page</h1>
+        {verified ? (
+          <div className={css.inner}>
+            <div>
+              <p className={css["message-success"]}>
+                Email was verified successfully!
+              </p>
+              <p className={css["message-info"]}>
+                Please follow the link below to complete the login process...
+              </p>
+            </div>
+
+            <Link to="/login" className={css["redirect-btn"]}>
+              Go to login
+            </Link>
+
+            <div className={css.timer}>
+              <p>
+                Auto-redirect to login page in{" "}
+                <span className={css.countdown}>{timer}</span>
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className={css.fallback}>
+            <FallbackView type="warning" message={"Email is not verified"} />
+            <Spinner size={40} />
+          </div>
+        )}
+      </section>
+    </Container>
   );
 };
 

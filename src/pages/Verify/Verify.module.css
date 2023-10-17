@@ -1,0 +1,77 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-height: 100%;
+
+  text-align: center;
+}
+
+.fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  height: 100%;
+}
+
+.message-success {
+  margin-bottom: 8px;
+
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-accent-primary);
+}
+
+.message-success,
+.message-info {
+  text-align: center;
+}
+
+.redirect-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 4px;
+  margin: 0;
+  padding: 16px 8px;
+  border: 1px solid;
+  border-radius: 4px;
+
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  background-color: rgb(239, 239, 239);
+  cursor: pointer;
+  transition: scale 250ms linear, color 250ms linear,
+    background-color 250ms linear;
+}
+
+.redirect-btn:hover,
+.redirect-btn:focus {
+  color: var(--color-accent-primary);
+  background-color: var(--color-accent-secondary);
+  scale: 1.1;
+}
+
+.redirect-btn:active {
+  background-color: #5f6775;
+  color: #f4f4f4;
+}
+
+.timer {
+  margin-top: auto;
+}
+
+.countdown {
+  font-weight: 700;
+}

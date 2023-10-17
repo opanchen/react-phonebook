@@ -136,3 +136,17 @@ export const updateAvatar = createAsyncThunk(
     }
   }
 );
+
+export const resendVerifyMessage = createAsyncThunk(
+  "auth/resendVerify",
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const res = phonebookAPI.post("/users/verify/", credentials);
+      console.log(res);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error.message);
+    }
+  }
+);

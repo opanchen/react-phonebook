@@ -46,7 +46,7 @@ const ContactDetails = () => {
   }, [navigate, width]);
 
   // !
-  if (!isError || !contact)
+  if (isError || !contact)
     return (
       <FallbackView
         type="error"

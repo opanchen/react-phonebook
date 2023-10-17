@@ -4,6 +4,7 @@ import {
   logout,
   refreshUser,
   register,
+  resendVerifyMessage,
   updateAvatar,
 } from "./operations";
 
@@ -15,6 +16,8 @@ const initialState = {
   },
   token: null,
   isLoggedIn: false,
+  isRegistered: false,
+  isVerifyMessageResended: false,
   isRefreshing: false,
 };
 
@@ -26,6 +29,8 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, (state, action) => {
         console.log("register action: ", action);
         console.log("register payload: ", action.payload);
+        state.isRegistered = true;
+        state.user.email = action.payload.email;
       })
       .addCase(register.pending, (state) => state)
       .addCase(register.rejected, (state) => state)
@@ -41,6 +46,7 @@ const authSlice = createSlice({
         state.user.avatar = user.avatarURL;
         state.token = token;
         state.isLoggedIn = true;
+        state.isRegistered = false;
       })
       .addCase(login.pending, (state) => state)
       .addCase(login.rejected, (state) => state)
@@ -81,7 +87,16 @@ const authSlice = createSlice({
         state.user.avatar = action.payload.avatarURL;
       })
       .addCase(updateAvatar.pending, (state) => state)
-      .addCase(updateAvatar.rejected, (state) => state);
+      .addCase(updateAvatar.rejected, (state) => state)
+
+      .addCase(resendVerifyMessage.fulfilled, (state, action) => {
+        console.log("resend verify message action: ", action);
+
+        state.isVerifyMessageResended = true;
+        state.user.email = null;
+      })
+      .addCase(resendVerifyMessage.pending, (state) => state)
+      .addCase(resendVerifyMessage.rejected, (state) => state);
   },
 });
 

@@ -52,7 +52,7 @@
   transition: scale 250ms linear, color 250ms linear,
     background-color 250ms linear;
 }
-
+.submit-btn:hover,
 .submit-btn:focus {
   color: var(--color-accent-primary);
   background-color: var(--color-accent-secondary);

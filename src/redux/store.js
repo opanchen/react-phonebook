@@ -27,7 +27,7 @@ const middleware = (getDefaultMiddleware) => [
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["token"],
+  whitelist: ["token", "isRegistered", "isVerifyMessageResended", "user"],
 };
 
 export const store = configureStore({
