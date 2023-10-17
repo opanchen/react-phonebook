@@ -8,6 +8,7 @@
   align-items: center;
   gap: 4px;
   padding: 4px;
+  border-radius: 4px;
 
   box-shadow: var(--box-shadow);
   background-color: var(--color-background-secondary);

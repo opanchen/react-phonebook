@@ -18,7 +18,7 @@ const Contacts = () => {
         <h1 className="visually-hidden">Contacts</h1>
         <div className={css.inner}>
           <div>
-            <h2>Add new contact</h2>
+            <h2 className={css["form-title"]}>Add new contact</h2>
             <ContactForm />
           </div>
           <div className={css["contacts-box"]}>

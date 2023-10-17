@@ -22,6 +22,7 @@ import {
   Spinner,
 } from "components";
 import { useWindowDimensions } from "hooks";
+import contactAvatar from "../../assets/images/contact.png";
 
 const AVATAR_PATH = "https://cdn-icons-png.flaticon.com/512/1998/1998592.png";
 
@@ -84,7 +85,7 @@ const ContactDetails = () => {
                 <div className={css.thumb}>
                   <img
                     className={css.image}
-                    src={AVATAR_PATH}
+                    src={contactAvatar}
                     alt="icon"
                     width={86}
                   />

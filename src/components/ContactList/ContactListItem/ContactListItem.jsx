@@ -15,6 +15,7 @@ import {
   useUpdateStatusContactMutation,
 } from "redux/contacts/contactsSlice";
 import { EditContactForm, MessageForm, Modal, Spinner } from "components";
+import contactAvatar from "../../../assets/images/contact.png";
 
 const AVATAR_PATH = "https://cdn-icons-png.flaticon.com/512/1998/1998592.png";
 
@@ -61,7 +62,7 @@ export const ContactListItem = ({
   ) : (
     <div className={css.wrapper}>
       <div className={css.inner}>
-        <img className={css.image} src={AVATAR_PATH} alt="icon" width={48} />
+        <img className={css.image} src={contactAvatar} alt="icon" width={48} />
         <div className={css.info}>
           <p className={css.name}>
             <span className={css["label-name"]}>Name:</span> {name}
@@ -145,7 +146,7 @@ export const ContactListItem = ({
             prevNumber={phone}
             prevEmail={email}
             closeModal={toggleEditModal}
-            avatar={AVATAR_PATH}
+            avatar={contactAvatar}
           />
         </Modal>
       )}
