@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { AppBar, Container } from "components";
+import { AppBar, Container, Footer } from "components";
 import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,7 +21,7 @@ export const SharedLayout = () => {
       </main>
 
       <footer>
-        <div>Footer</div>
+        <Footer />
       </footer>
       <ToastContainer autoClose={3000} />
     </div>

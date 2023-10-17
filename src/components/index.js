@@ -21,3 +21,4 @@ export * from "./ModalPopUp/ModalPopUp.jsx";
 export * from "./FileUploader/FileUploader.jsx";
 export * from "./AvatarForm/AvatarForm.jsx";
 export * from "./Spinner/Spinner.jsx";
+export * from "./Footer/Footer.jsx";
