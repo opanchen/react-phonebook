@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import css from "./MainNavigation.module.css";
+import { useAuth } from "hooks";
 
 export const MainNavigation = () => {
+  const { isLoggedIn } = useAuth();
+
   const navLinkClassName = ({ isActive }) =>
     isActive ? `${css.link} ${css.current}` : css.link;
 
@@ -14,11 +17,13 @@ export const MainNavigation = () => {
           </NavLink>
         </li>
 
-        <li>
-          <NavLink className={navLinkClassName} to="/contacts">
-            Contacts
-          </NavLink>
-        </li>
+        {isLoggedIn && (
+          <li>
+            <NavLink className={navLinkClassName} to="/contacts">
+              Contacts
+            </NavLink>
+          </li>
+        )}
       </ul>
     </nav>
   );

@@ -1,6 +1,6 @@
 import { lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { SharedLayout } from "components";
+import { PrivateRoute, RestrictedRoute, SharedLayout } from "components";
 import { useDispatch } from "react-redux";
 import { useAuth } from "hooks";
 import { refreshUser } from "redux/auth/operations";
@@ -30,14 +30,58 @@ function App() {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/contacts" element={<ContactsPage />}>
-          <Route path="all" element={<AllContacts />} />
-          <Route path="favorite" element={<FavContacts />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<RegisterPage />}
+            />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        >
+          <Route
+            path="all"
+            element={
+              <PrivateRoute redirectTo="/login" component={<AllContacts />} />
+            }
+          />
+          <Route
+            path="favorite"
+            element={
+              <PrivateRoute redirectTo="/login" component={<FavContacts />} />
+            }
+          />
         </Route>
-        <Route path="/contacts/:id" element={<ContactDetailsPage />} />
-        <Route path="/api/users/verify/:token" element={<VerificationPage />} />
+        <Route
+          path="/contacts/:id"
+          element={
+            <PrivateRoute
+              redirectTo="/login"
+              component={<ContactDetailsPage />}
+            />
+          }
+        />
+        <Route
+          path="/api/users/verify/:token"
+          element={
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<VerificationPage />}
+            />
+          }
+        />
         <Route path="*" element={<HomePage />} />
       </Route>
     </Routes>

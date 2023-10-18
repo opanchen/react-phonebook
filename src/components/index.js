@@ -23,3 +23,5 @@ export * from "./AvatarForm/AvatarForm.jsx";
 export * from "./Spinner/Spinner.jsx";
 export * from "./Footer/Footer.jsx";
 export * from "./FallbackView/FallbackView.jsx";
+export * from "./Routes/PrivateRoute.jsx";
+export * from "./Routes/RestrictedRoute.jsx";

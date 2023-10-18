@@ -9,6 +9,7 @@ const Register = () => {
   const { isRegistered, isVerifyMessageResended, user } = useAuth();
   // const [resendMessage, setResendMessage] = useState(false);
   const [timer, setTimer] = useState(300);
+  // const [timer, setTimer] = useState(5);
   const dispatch = useDispatch();
 
   useEffect(() => {
