@@ -1,5 +1,6 @@
 import { Container, LoginForm } from "components";
 import { Helmet } from "react-helmet";
+import css from "./Login.module.css";
 
 const Login = () => {
   return (
@@ -9,10 +10,10 @@ const Login = () => {
       </Helmet>
 
       <Container>
-        <div>
+        <section className={css.wrapper}>
           <h1>Login page</h1>
           <LoginForm />
-        </div>
+        </section>
       </Container>
     </>
   );

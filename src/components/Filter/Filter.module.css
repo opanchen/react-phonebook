@@ -13,6 +13,15 @@
 
 .filter input {
   padding: 4px;
+  height: 24px;
+  border: 1px solid;
+  border-radius: 4px;
+  transition: border-color 250ms linear;
+}
+
+.filter input:focus {
+  outline: none;
+  border-color: var(--color-accent-primary);
 }
 
 @media screen and (min-width: 480px) {

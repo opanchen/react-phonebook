@@ -66,6 +66,14 @@
 
 .form-input {
   height: 24px;
+  border: 1px solid;
+  border-radius: 4px;
+  transition: border-color 250ms linear;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-accent-primary);
 }
 
 .input-label {

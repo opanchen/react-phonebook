@@ -39,38 +39,40 @@ const Register = () => {
       </Helmet>
 
       <Container>
-        <div>
-          <h1>Register page</h1>
-          <RegisterForm />
-        </div>
-
-        {isRegistered && (
-          <div className={css["verify-info"]}>
-            <FallbackView
-              type="warning"
-              message={
-                "Please check out verification message on your email to continue..."
-              }
-            />
-
-            {!isVerifyMessageResended && timer !== 0 && (
-              <p className={css["resend-text"]}>
-                You can resend verification message in {minutes} min {seconds}{" "}
-                sec...
-              </p>
-            )}
-
-            {!isVerifyMessageResended && timer === 0 && (
-              <button
-                className={css["resend-btn"]}
-                type="button"
-                onClick={resendHandler}
-              >
-                Resend message
-              </button>
-            )}
+        <section>
+          <div className={css["main-wrapper"]}>
+            <h1>Register page</h1>
+            <RegisterForm />
           </div>
-        )}
+
+          {isRegistered && (
+            <div className={css["verify-info"]}>
+              <FallbackView
+                type="warning"
+                message={
+                  "Please check out verification message on your email to continue..."
+                }
+              />
+
+              {!isVerifyMessageResended && timer !== 0 && (
+                <p className={css["resend-text"]}>
+                  You can resend verification message in {minutes} min {seconds}{" "}
+                  sec...
+                </p>
+              )}
+
+              {!isVerifyMessageResended && timer === 0 && (
+                <button
+                  className={css["resend-btn"]}
+                  type="button"
+                  onClick={resendHandler}
+                >
+                  Resend message
+                </button>
+              )}
+            </div>
+          )}
+        </section>
       </Container>
     </>
   );
