@@ -68,6 +68,9 @@ export const RegisterForm = () => {
         <input
           type="text"
           name="name"
+          required
+          pattern="^[a-zA-Zа-щьюяґєіїА-ЩЬЮЯҐЄІЇ]+(([' -][a-zA-Zа-щьюяґєіїА-ЩЬЮЯҐЄІЇ ])?[a-zA-Zа-щьюяґєіїА-ЩЬЮЯҐЄІЇ]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           id={usernameInputId}
           onChange={handleChange}
           value={username}
@@ -82,6 +85,8 @@ export const RegisterForm = () => {
           name="email"
           id={emailInputId}
           required
+          pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/"
+          title="Invalid email"
           onChange={handleChange}
           value={email}
           className={css["form-input"]}

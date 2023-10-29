@@ -56,6 +56,8 @@ export const LoginForm = () => {
           name="email"
           id={emailInputId}
           required
+          pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/"
+          title="Invalid email"
           onChange={handleChange}
           value={email}
           className={css["form-input"]}
