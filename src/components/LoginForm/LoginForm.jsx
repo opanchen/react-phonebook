@@ -33,8 +33,6 @@ export const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(`Login submit: \nemail: ${email} \npassword: ${password}`);
-
     dispatch(login({ email, password }));
 
     reset();

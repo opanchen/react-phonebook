@@ -37,10 +37,6 @@ export const RegisterForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(
-      `Register submit: \nname: ${username} \nemail: ${email} \npassword: ${password}`
-    );
-
     dispatch(
       register({
         name: username,

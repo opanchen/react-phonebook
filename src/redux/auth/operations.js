@@ -8,7 +8,7 @@ const REMOTE_SERVER = "https://phonebook-backend-kuop.onrender.com/api/";
 
 // Create & export special axios instance to use it (with current config) inside another redux-slice
 export const phonebookAPI = axios.create();
-phonebookAPI.defaults.baseURL = LOCAL_SERVER;
+phonebookAPI.defaults.baseURL = REMOTE_SERVER;
 
 // Utility to add JWT
 const setAuthHeader = (token) => {

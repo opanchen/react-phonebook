@@ -45,7 +45,6 @@ export const ContactForm = () => {
     if (name.trim().length === 0 || number.trim().length === 0) {
       toast.error("Name and number fields are required!");
     }
-    console.log("name: ", name, "\nnumber: ", number);
 
     addContact({
       name,
