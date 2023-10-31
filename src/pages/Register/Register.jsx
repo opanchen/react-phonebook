@@ -1,10 +1,11 @@
-import { Container, FallbackView, RegisterForm } from "components";
+import { Container, FallbackView, ModalPopUp, RegisterForm } from "components";
 import { useAuth } from "hooks";
 import { useEffect, useState } from "react";
 import css from "./Register.module.css";
 import { useDispatch } from "react-redux";
 import { resendVerifyMessage } from "redux/auth/operations";
 import { Helmet } from "react-helmet";
+import { InfoIcon } from "helpers/icons";
 
 const Register = () => {
   const { isRegistered, isVerifyMessageResended, user } = useAuth();
@@ -12,6 +13,12 @@ const Register = () => {
   const [timer, setTimer] = useState(300);
   // const [timer, setTimer] = useState(5);
   const dispatch = useDispatch();
+
+  const [isModalPopUpShown, setIsModalPopUpShown] = useState(false);
+
+  const toggleModalPopUp = () => {
+    setIsModalPopUpShown((prevModalState) => !prevModalState);
+  };
 
   useEffect(() => {
     if (!isRegistered) return;
@@ -62,13 +69,45 @@ const Register = () => {
               )}
 
               {!isVerifyMessageResended && timer === 0 && (
-                <button
-                  className={css["resend-btn"]}
-                  type="button"
-                  onClick={resendHandler}
-                >
-                  Resend message
-                </button>
+                <div className={css["btn-bar"]}>
+                  <button
+                    className={css["resend-btn"]}
+                    type="button"
+                    onClick={resendHandler}
+                  >
+                    Resend message
+                  </button>
+
+                  <button
+                    type="button"
+                    className={css["info-btn"]}
+                    onClick={toggleModalPopUp}
+                  >
+                    <InfoIcon size={20} />
+                  </button>
+                </div>
+              )}
+
+              {isModalPopUpShown && (
+                <ModalPopUp onClose={toggleModalPopUp}>
+                  <div className={css["info-pop-up"]}>
+                    <p>
+                      The number of messages sent per day is limited by a
+                      third-party service.
+                    </p>
+                    <p>
+                      If you have any issues, please contact the{" "}
+                      <a
+                        href="https://www.linkedin.com/in/oleh-panchenko/"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        developer
+                      </a>
+                      .
+                    </p>
+                  </div>
+                </ModalPopUp>
               )}
             </div>
           )}

@@ -31,6 +31,7 @@ const authSlice = createSlice({
         console.log("register payload: ", action.payload);
         state.isRegistered = true;
         state.user.email = action.payload.email;
+        state.isVerifyMessageResended = false;
       })
       .addCase(register.pending, (state) => state)
       .addCase(register.rejected, (state) => state)

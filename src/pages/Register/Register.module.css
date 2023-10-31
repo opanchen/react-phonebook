@@ -20,6 +20,15 @@
   font-weight: 500;
 }
 
+.btn-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
 .resend-btn {
   display: flex;
   align-items: center;
@@ -45,6 +54,38 @@
 .resend-btn:active {
   background-color: #5f6775;
   color: #f4f4f4;
+}
+
+.info-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+
+  background-color: transparent;
+  color: #0000ff;
+  transition: scale 250ms linear, color 250ms linear,
+    background-color 250ms linear;
+}
+
+.info-btn:hover,
+.info-btn:focus {
+  color: var(--color-accent-primary);
+  background-color: transparent;
+  scale: 1.1;
+}
+
+.info-pop-up {
+  /* outline: 1px dashed tomato; */
+  padding-right: 28px;
+  max-width: 280px;
+
+  font-size: 14px;
 }
 
 @media screen and (min-width: 480px) {
