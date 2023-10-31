@@ -5,6 +5,7 @@ import { logout } from "redux/auth/operations";
 import { useAuth } from "hooks";
 import { AvatarForm, Modal } from "components";
 import { useState } from "react";
+import defaultAvatar from "../../assets/images/avatar-default.jpg";
 
 export const UserMenu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,6 +13,10 @@ export const UserMenu = () => {
 
   const { user } = useAuth();
   //   console.log(user);
+
+  const avatar = user.avatar.includes("www.gravatar.com/avatar/")
+    ? defaultAvatar
+    : user.avatar;
 
   const handleLogOut = () => {
     console.log("click on log out...");
@@ -31,7 +36,7 @@ export const UserMenu = () => {
       >
         <div className={css.thumb}>
           <img
-            src={user.avatar}
+            src={avatar}
             className={css.avatar}
             alt="user avatar"
             width={56}

@@ -4,11 +4,16 @@ import { FileUploader } from "components";
 import { useDispatch } from "react-redux";
 import { updateAvatar } from "redux/auth/operations";
 import { useAuth } from "hooks";
+import defaultAvatar from "../../assets/images/avatar-default.jpg";
 
 export const AvatarForm = ({ closeModal }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const dispatch = useDispatch();
   const { user } = useAuth();
+
+  const avatar = user.avatar.includes("www.gravatar.com/avatar/")
+    ? defaultAvatar
+    : user.avatar;
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -37,7 +42,7 @@ export const AvatarForm = ({ closeModal }) => {
       <h2 className={css.title}>Edit avatar</h2>
       <div className={css.thumb}>
         <img
-          src={user.avatar}
+          src={avatar}
           className={css.avatar}
           alt="user avatar"
           width={120}
