@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Phonebook App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Create and manage your personal contact list, save favorite ones, send them messages or just do everything you want.
 
-In the project directory, you can run:
+**View [DEMO](https://opanchen.github.io/react-phonebook)**
 
-### `npm start`
+**Backend [API](https://github.com/opanchen/goit-node-hw-rest-api)**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> ==**_Attention!_**== Unfortunately, the service for sending emails may work not 100% correctly due to certain **Nodemailer** issues related to some SMTP protocol peculiarities.
+> ==_In that case_== you can use public testing account to view basic app's features except account verification or manual message sending.
+> **Email:** senaven173@czilou.com
+> **Password:** 123456
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Creating
 
-### `npm test`
+The project was created with **[Create React App](https://github.com/facebook/create-react-app)**.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Added **`404.html`** file and the corresponding script in index.html to handle the 404 error when the page is reloaded.
 
-### `npm run build`
+App routing and navigation structure was inplemented with **[React Router Dom](https://www.npmjs.com/package/react-router-dom)** using code splitting with **`React.lazy`** & **`React.Suspense`**.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+On the client's side the application stores and manages data with **[Redux Toolkit](https://redux-toolkit.js.org/)**. Auth operations were implemented using **[Redux Async Thunk](https://redux-toolkit.js.org/api/createAsyncThunk)** while other CRUD operations releted to contacts were implemented via **[RTK Query](https://redux-toolkit.js.org/rtk-query/overview)**.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Backend **Rest [API](https://github.com/opanchen/goit-node-hw-rest-api)** was created with **[Node.js](https://nodejs.org/en)**, **[Express.js](https://expressjs.com/)** and **[Mongo DB](https://www.mongodb.com/)**.
+Sending of verification massages was implemented using **[Nodemailer](https://nodemailer.com/)**.
 
-### `npm run eject`
+After creating a new account the user have to check out his mailbox and verify email to continue using the app.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![](https://media.giphy.com/media/I5nvvd508xGTzVQqyW/giphy.gif)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![](https://media.giphy.com/media/NUNVvYKEZ4HwZlr2EF/giphy.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+According to API email service also can be used for sending private messages to user's contacts.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![](https://media.giphy.com/media/QGa0OegcKHC0pokVJB/giphy.gif)
 
-## Learn More
+## Dependencies and technologies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- _React_
+- _React Router Dom_
+- _React Helmet_
+- _React Redux_
+- _Redux Toolkit_
+- _Redux Persist_
+- _React Icons_
+- _React Toastify_
+- _Axios_
+- _Nanoid_
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+... and more. Full list of dependencies and additional information is available in **`package.json`** file.
