@@ -8,9 +8,14 @@ Create and manage your personal contact list, save favorite ones, send them mess
 
 **Backend [API](https://github.com/opanchen/goit-node-hw-rest-api)**
 
-> ==**_Attention!_**== Unfortunately, the service for sending emails may work not 100% correctly due to certain **Nodemailer** issues related to some SMTP protocol peculiarities.
-> ==_In that case_== you can use public testing account to view basic app's features except account verification or manual message sending.
+>
+>  **_Attention!_**
+>
+>Unfortunately, the service for sending emails may work not 100% correctly due to certain **Nodemailer** issues related to some SMTP protocol peculiarities.
+> _In that case_ you can use public testing account to view basic app's features except account verification or manual message sending.
+>
 > **Email:** senaven173@czilou.com
+>
 > **Password:** 123456
 
 ## Creating
