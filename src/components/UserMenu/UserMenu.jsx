@@ -1,25 +1,25 @@
-import { LogOutIcon } from "helpers/icons";
-import css from "./UserMenu.module.css";
-import { useDispatch } from "react-redux";
-import { logout } from "redux/auth/operations";
-import { useAuth } from "hooks";
-import { AvatarForm, Modal } from "components";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useAuth } from "hooks";
+import { logout } from "redux/auth/operations";
+
+import { LogOutIcon } from "helpers/icons";
+import { AvatarForm, Modal } from "components";
+import css from "./UserMenu.module.css";
 import defaultAvatar from "../../assets/images/avatar-default.jpg";
 
 export const UserMenu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const dispatch = useDispatch();
 
   const { user } = useAuth();
-  //   console.log(user);
 
   const avatar = user.avatar.includes("www.gravatar.com/avatar/")
     ? defaultAvatar
     : user.avatar;
 
   const handleLogOut = () => {
-    console.log("click on log out...");
     dispatch(logout());
   };
 

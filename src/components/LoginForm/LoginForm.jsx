@@ -1,9 +1,10 @@
 import { useState } from "react";
-import css from "./LoginForm.module.css";
-import { nanoid } from "nanoid";
-import { ClearIcon, LogInIcon } from "helpers/icons";
 import { useDispatch } from "react-redux";
 import { login } from "redux/auth/operations";
+import { nanoid } from "nanoid";
+
+import { ClearIcon, LogInIcon } from "helpers/icons";
+import css from "./LoginForm.module.css";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("");

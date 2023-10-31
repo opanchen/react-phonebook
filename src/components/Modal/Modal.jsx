@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import css from "./Modal.module.css";
 import { createPortal } from "react-dom";
+
 import { CloseIcon } from "helpers/icons";
+import css from "./Modal.module.css";
 
 const modalRoot = document.querySelector("#modal-root");
 

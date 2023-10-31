@@ -1,15 +1,17 @@
 import { useState } from "react";
+import { useAddContactMutation } from "redux/contacts/contactsSlice";
 import { nanoid } from "nanoid";
-import css from "./ContactForm.module.css";
+
+import { Spinner } from "components";
 import { ClearIcon } from "helpers/icons";
 import { toast } from "react-toastify";
-import { useAddContactMutation } from "redux/contacts/contactsSlice";
-import { Spinner } from "components";
+import css from "./ContactForm.module.css";
 
 export const ContactForm = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
+
   const [addContact, { isLoading: isAdding }] = useAddContactMutation();
 
   const nameInputId = nanoid();

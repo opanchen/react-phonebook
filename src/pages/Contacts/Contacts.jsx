@@ -1,8 +1,9 @@
-import { ContactForm, Container, InnerNavigation } from "components";
 import { Suspense, useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import css from "./Contacts.module.css";
+
+import { ContactForm, Container, InnerNavigation } from "components";
 import { Helmet } from "react-helmet";
+import css from "./Contacts.module.css";
 
 const Contacts = () => {
   const navigate = useNavigate();

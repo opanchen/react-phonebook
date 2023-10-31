@@ -37,9 +37,6 @@ const authSlice = createSlice({
       .addCase(register.rejected, (state) => state)
 
       .addCase(login.fulfilled, (state, action) => {
-        console.log("login action: ", action);
-        console.log("login payload: ", action.payload);
-
         const { user, token } = action.payload;
 
         state.user.name = user.name;
@@ -58,15 +55,11 @@ const authSlice = createSlice({
         state.user.avatar = null;
         state.token = null;
         state.isLoggedIn = false;
-        console.log("user logged out...");
       })
       .addCase(logout.pending, (state) => state)
       .addCase(logout.rejected, (state) => state)
 
       .addCase(refreshUser.fulfilled, (state, action) => {
-        console.log("refresh action: ", action);
-        console.log("refresh payload: ", action.payload);
-
         const { name, email, avatarURL } = action.payload;
 
         state.user.name = name;
@@ -84,15 +77,12 @@ const authSlice = createSlice({
       })
 
       .addCase(updateAvatar.fulfilled, (state, action) => {
-        console.log("update avatar action: ", action);
         state.user.avatar = action.payload.avatarURL;
       })
       .addCase(updateAvatar.pending, (state) => state)
       .addCase(updateAvatar.rejected, (state) => state)
 
       .addCase(resendVerifyMessage.fulfilled, (state, action) => {
-        console.log("resend verify message action: ", action);
-
         state.isVerifyMessageResended = true;
         state.user.email = null;
       })

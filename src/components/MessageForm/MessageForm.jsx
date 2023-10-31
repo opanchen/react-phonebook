@@ -1,13 +1,15 @@
-import { useSendEmailMutation } from "redux/contacts/contactsSlice";
-import css from "./MessageForm.module.css";
 import { useState } from "react";
+import { useSendEmailMutation } from "redux/contacts/contactsSlice";
+
 import { ClearIcon, InfoIcon } from "helpers/icons";
 import { ModalPopUp, Spinner } from "components";
+import css from "./MessageForm.module.css";
 
 export const MessageForm = ({ id, closeModal, messages }) => {
-  const [sendEmail, { isLoading: isSending }] = useSendEmailMutation();
   const [message, setMessage] = useState("");
   const [isModalPopUpShown, setIsModalPopUpShown] = useState(false);
+
+  const [sendEmail, { isLoading: isSending }] = useSendEmailMutation();
 
   const toggleModalPopUp = () => {
     setIsModalPopUpShown((prevModalState) => !prevModalState);

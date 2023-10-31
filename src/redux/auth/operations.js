@@ -30,7 +30,6 @@ export const register = createAsyncThunk(
       // After successfull registration the user gets an email with special link to verification page.
       // Don't add the verification token to the HTTP header.
 
-      console.log(res);
       return res.data;
     } catch (error) {
       toast.error(
@@ -52,7 +51,6 @@ export const login = createAsyncThunk(
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
 
-      console.log(res);
       return res.data;
     } catch (error) {
       if (error.response.data?.message === "Email is not verified") {
@@ -102,7 +100,6 @@ export const refreshUser = createAsyncThunk(
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
       const res = await phonebookAPI.get("/users/current");
-      // console.log(res);
       return res.data;
     } catch (error) {
       console.log(error);
@@ -119,16 +116,7 @@ export const updateAvatar = createAsyncThunk(
   async (formData, { rejectWithValue }) => {
     try {
       console.log("fd: ", formData.getAll("avatar"));
-      const res = await phonebookAPI.patch(
-        "/users/avatars",
-        formData
-        // , {
-        // headers: {
-        //   "Content-Type": "multipart/form-data",
-        // },
-        // }
-      );
-      // console.log(res);
+      const res = await phonebookAPI.patch("/users/avatars", formData);
       return res.data;
     } catch (error) {
       console.log(error);
@@ -142,7 +130,6 @@ export const resendVerifyMessage = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const res = phonebookAPI.post("/users/verify/", credentials);
-      console.log(res);
       return res.data;
     } catch (error) {
       console.log(error);

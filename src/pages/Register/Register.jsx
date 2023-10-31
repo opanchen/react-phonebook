@@ -1,20 +1,20 @@
-import { Container, FallbackView, ModalPopUp, RegisterForm } from "components";
 import { useAuth } from "hooks";
 import { useEffect, useState } from "react";
-import css from "./Register.module.css";
 import { useDispatch } from "react-redux";
 import { resendVerifyMessage } from "redux/auth/operations";
+
+import { Container, FallbackView, ModalPopUp, RegisterForm } from "components";
 import { Helmet } from "react-helmet";
 import { InfoIcon } from "helpers/icons";
+import css from "./Register.module.css";
 
 const Register = () => {
   const { isRegistered, isVerifyMessageResended, user } = useAuth();
-  // const [resendMessage, setResendMessage] = useState(false);
-  const [timer, setTimer] = useState(300);
-  // const [timer, setTimer] = useState(5);
-  const dispatch = useDispatch();
 
+  const [timer, setTimer] = useState(300);
   const [isModalPopUpShown, setIsModalPopUpShown] = useState(false);
+
+  const dispatch = useDispatch();
 
   const toggleModalPopUp = () => {
     setIsModalPopUpShown((prevModalState) => !prevModalState);

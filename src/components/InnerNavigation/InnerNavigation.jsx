@@ -3,7 +3,6 @@ import css from "./InnerNavigation.module.css";
 
 export const InnerNavigation = () => {
   const location = useLocation();
-  console.log(location);
 
   const innerNavLinkClassName = (path) =>
     location.pathname.includes(path) ? `${css.link} ${css.current}` : css.link;

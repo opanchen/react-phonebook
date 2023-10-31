@@ -13,7 +13,6 @@
 }
 
 .contacts-box {
-  /* outline: 1px dashed blue; */
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -32,8 +31,6 @@
   }
 
   .contacts-box {
-    /* outline: 1px dashed blue; */
-
     max-width: 1200px;
     margin-left: auto;
   }

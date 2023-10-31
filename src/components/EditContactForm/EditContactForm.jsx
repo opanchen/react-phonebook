@@ -1,13 +1,14 @@
 import { useState } from "react";
-import css from "./EditContactForm.module.css";
-import { nanoid } from "nanoid";
-import { toast } from "react-toastify";
 import {
   useGetContactsQuery,
   useUpdateContactMutation,
 } from "redux/contacts/contactsSlice";
+import { nanoid } from "nanoid";
+
+import { toast } from "react-toastify";
 import { ClearIcon } from "helpers/icons";
 import { Spinner } from "components";
+import css from "./EditContactForm.module.css";
 
 export const EditContactForm = ({
   id,
@@ -22,7 +23,6 @@ export const EditContactForm = ({
   const [email, setEmail] = useState(prevEmail);
 
   const { data: contacts } = useGetContactsQuery();
-  //   console.log(contacts);
   const [updateContact, { isLoading: isUpdating }] = useUpdateContactMutation();
 
   const nameInputId = nanoid();
@@ -87,7 +87,6 @@ export const EditContactForm = ({
     // we leave to user an opportunity to change name, email or phone number without default reset
 
     updateContact({ id, name, number, email });
-    // dispatch(editContact({ id, name, number }));
 
     reset();
     closeModal();

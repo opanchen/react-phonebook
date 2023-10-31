@@ -1,6 +1,4 @@
 .wrapper {
-  /* outline: 1px dashed tomato; */
-
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -13,8 +11,6 @@
 }
 
 .list {
-  /* outline: 1px dashed teal; */
-
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -31,9 +27,6 @@
   margin-left: 2px;
   width: 2px;
 }
-/* .list::-webkit-scrollbar-track {
-  padding: 4px 0;
-} */
 
 .list::-webkit-scrollbar-thumb {
   background-color: gray;
@@ -41,7 +34,6 @@
 }
 
 .item {
-  /* outline: 1px dashed tomato; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -77,8 +69,6 @@
 }
 
 .input-label {
-  /* outline: 1px dashed green; */
-
   position: relative;
 
   display: flex;
@@ -147,7 +137,6 @@
 }
 
 .info-pop-up {
-  /* outline: 1px dashed tomato; */
   padding-right: 28px;
   max-width: 280px;
 

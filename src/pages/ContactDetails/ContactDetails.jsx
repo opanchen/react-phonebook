@@ -4,8 +4,9 @@ import {
   useGetContactByIdQuery,
   useUpdateStatusContactMutation,
 } from "redux/contacts/contactsSlice";
-import css from "./ContactDetails.module.css";
 import { useEffect, useState } from "react";
+import { useWindowDimensions } from "hooks";
+
 import {
   AddToFavIcon,
   CallIcon,
@@ -22,22 +23,24 @@ import {
   Modal,
   Spinner,
 } from "components";
-import { useWindowDimensions } from "hooks";
+import css from "./ContactDetails.module.css";
 import contactAvatar from "../../assets/images/contact.png";
 
 const AVATAR_PATH = "https://cdn-icons-png.flaticon.com/512/1998/1998592.png";
 
 const ContactDetails = () => {
+  const { id } = useParams();
+  const { width } = useWindowDimensions();
+
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
-  const { id } = useParams();
+
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
   const [toggleIsFavorite, { isLoading: isFavChangind }] =
     useUpdateStatusContactMutation();
   const { data: contact, isLoading, isError } = useGetContactByIdQuery(id);
 
   const navigate = useNavigate();
-  const { width } = useWindowDimensions();
 
   useEffect(() => {
     if (width < 768) return;
@@ -56,7 +59,6 @@ const ContactDetails = () => {
       />
     );
 
-  //   console.log(contact);
   const { name, email, phone, favorite: isFavorite, sentMessages } = contact;
 
   const favoriteHandler = () => {

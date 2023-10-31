@@ -1,8 +1,9 @@
-import { createSelector } from "@reduxjs/toolkit";
-import { ContactList, FallbackView, Filter, Spinner } from "components";
-import { useSelector } from "react-redux";
 import { useGetContactsQuery } from "redux/contacts/contactsSlice";
+import { createSelector } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 import { selectFilterValue } from "redux/contacts/selectors";
+
+import { ContactList, FallbackView, Filter, Spinner } from "components";
 import css from "./AllContacts.module.css";
 
 const AllContacts = () => {
@@ -19,7 +20,7 @@ const AllContacts = () => {
   );
 
   const visibleContacts = useSelector(selectVisibleContacts);
-  // console.log(contacts);
+
   return (
     <section className={css.section}>
       <Filter />

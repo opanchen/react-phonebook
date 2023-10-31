@@ -2,14 +2,12 @@
   display: flex;
   gap: 8px;
   align-self: center;
-  /* padding: 8px; */
 }
 
 .link {
   display: inline-flex;
 
   font-weight: 700;
-  /* padding: 4px 0; */
   padding-bottom: 4px;
   text-decoration: none;
   color: var(--color-text-primary);

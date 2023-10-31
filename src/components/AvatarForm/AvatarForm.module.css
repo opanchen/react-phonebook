@@ -13,8 +13,6 @@
 }
 
 .thumb {
-  /* outline: 1px dashed teal; */
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,8 +28,6 @@
 }
 
 .form {
-  /* outline: 1px dashed tomato; */
-
   display: flex;
   flex-direction: column;
   gap: 8px;

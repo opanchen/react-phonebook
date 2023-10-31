@@ -1,5 +1,6 @@
-import { ContactList, FallbackView, Spinner } from "components";
 import { useGetContactsQuery } from "redux/contacts/contactsSlice";
+
+import { ContactList, FallbackView, Spinner } from "components";
 import css from "./FavContacts.module.css";
 
 const FavContacts = () => {
@@ -8,8 +9,6 @@ const FavContacts = () => {
   const favoriteContacts = !contacts
     ? []
     : contacts.filter((item) => item.favorite === true);
-
-  console.log(favoriteContacts);
 
   return (
     <section className={css.section}>

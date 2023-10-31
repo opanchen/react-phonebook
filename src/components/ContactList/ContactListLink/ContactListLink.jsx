@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import css from "./ContactListLink.module.css";
 import contactAvatar from "../../../assets/images/contact.png";
+import css from "./ContactListLink.module.css";
 
 export const ContactListLink = ({ id, name, email, phone, isFavorite }) => {
   return (

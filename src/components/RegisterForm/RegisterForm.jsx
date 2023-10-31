@@ -1,9 +1,10 @@
 import { useState } from "react";
-import css from "./RegisterForm.module.css";
-import { nanoid } from "nanoid";
-import { ClearIcon } from "helpers/icons";
 import { useDispatch } from "react-redux";
 import { register } from "redux/auth/operations";
+import { nanoid } from "nanoid";
+
+import { ClearIcon } from "helpers/icons";
+import css from "./RegisterForm.module.css";
 
 export const RegisterForm = () => {
   const [username, setUsername] = useState("");

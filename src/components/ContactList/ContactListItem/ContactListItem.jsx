@@ -1,5 +1,10 @@
 import { useWindowDimensions } from "hooks";
-import css from "./ContactListItem.module.css";
+import { useState } from "react";
+import {
+  useDeleteContactMutation,
+  useUpdateStatusContactMutation,
+} from "redux/contacts/contactsSlice";
+
 import {
   AddToFavIcon,
   CallIcon,
@@ -8,16 +13,15 @@ import {
   MessageIcon,
   RemoveFromFavIcon,
 } from "helpers/icons";
-import { ContactListLink } from "../ContactListLink/ContactListLink";
-import { useState } from "react";
 import {
-  useDeleteContactMutation,
-  useUpdateStatusContactMutation,
-} from "redux/contacts/contactsSlice";
-import { EditContactForm, MessageForm, Modal, Spinner } from "components";
+  EditContactForm,
+  MessageForm,
+  Modal,
+  Spinner,
+  ContactListLink,
+} from "components";
+import css from "./ContactListItem.module.css";
 import contactAvatar from "../../../assets/images/contact.png";
-
-const AVATAR_PATH = "https://cdn-icons-png.flaticon.com/512/1998/1998592.png";
 
 export const ContactListItem = ({
   id,
@@ -28,8 +32,10 @@ export const ContactListItem = ({
   messages,
 }) => {
   const { media } = useWindowDimensions();
+
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
+
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
   const [toggleIsFavorite, { isLoading: isFavChangind }] =
     useUpdateStatusContactMutation();

@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+
 import { toast } from "react-toastify";
 import css from "./FileUploader.module.css";
 
@@ -9,17 +10,10 @@ export const FileUploader = ({ onFileSelect }) => {
   const handleFileInput = (e) => {
     const file = e.target.files[0];
 
-    // console.log(file);
-
     if (file.type !== "image/jpeg") {
       toast.error("The file must conform to the jpeg format");
       return;
     }
-
-    // if (file.size > 1024) {
-    //   toast.error("File size cannot exceed more than 1MB");
-    //   return;
-    // }
 
     file ? setIsFileSelected(true) : setIsFileSelected(false);
 

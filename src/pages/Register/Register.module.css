@@ -33,8 +33,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* flex-shrink: 0; */
-  /* gap: 4px; */
   padding: 16px 8px;
   height: 24px;
   cursor: pointer;
@@ -81,7 +79,6 @@
 }
 
 .info-pop-up {
-  /* outline: 1px dashed tomato; */
   padding-right: 28px;
   max-width: 280px;
 

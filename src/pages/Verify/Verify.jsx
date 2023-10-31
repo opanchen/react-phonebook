@@ -1,19 +1,21 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import css from "./Verify.module.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 import { Container, FallbackView, Spinner } from "components";
+import css from "./Verify.module.css";
 
 const Verify = () => {
   const [verified, setVerified] = useState(false);
   const [timer, setTimer] = useState(100);
+
   const { token } = useParams();
+
   const navigate = useNavigate();
 
   useEffect(() => {
     const verifyUser = async () => {
       if (!token) {
-        console.log("no token from url params");
         return;
       }
 
@@ -22,11 +24,8 @@ const Verify = () => {
           `https://phonebook-backend-kuop.onrender.com/api/users/verify/${token}`
         );
 
-        console.log(res);
         if (res.status === 200) {
-          console.log("Verification result: ", res.data.message);
           setVerified(true);
-          //   navigate("/login");
         }
       } catch (error) {
         console.log(error);

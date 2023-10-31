@@ -1,8 +1,7 @@
-import css from "./ContactList.module.css";
 import { ContactListItem } from "./ContactListItem/ContactListItem";
+import css from "./ContactList.module.css";
 
 export const ContactList = ({ contacts }) => {
-  console.log(contacts);
   return (
     <ul className={css.list}>
       {contacts.map(({ _id, name, email, phone, favorite, sentMessages }) => {

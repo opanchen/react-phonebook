@@ -1,7 +1,8 @@
-import { createPortal } from "react-dom";
-import css from "./ModalPopUp.module.css";
-import { CloseIcon } from "helpers/icons";
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
+
+import { CloseIcon } from "helpers/icons";
+import css from "./ModalPopUp.module.css";
 
 const modalPopUp = document.querySelector("#modal-pop-up");
 
